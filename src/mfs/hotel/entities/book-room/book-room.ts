@@ -10,6 +10,8 @@ import { RoomDay } from './components/room-day/room-day';
 import { months } from '../../core/month';
 import {ReservationService} from 'hotel/entities/reservation/services/reservation.service';
 import moment from 'moment';
+import {RoomService} from 'hotel/entities/room/services/room.service';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   templateUrl: 'book-room.html',
@@ -20,14 +22,16 @@ import moment from 'moment';
 export default class BookRoom implements OnInit {
   private readonly roomDayStoreService = inject(RoomDayStoreService);
   private readonly reservationService = inject(ReservationService);
+  private readonly roomService = inject(RoomService);
 
-  rooms = Array.from({ length: 10 }, (_, i) => i + 1);
-  days = signal<Date[]>([]);
+  rooms = toSignal(this.roomDayStoreService.rooms$);
+  days = toSignal(this.roomDayStoreService.days$);
   months = signal(months);
 
   ngOnInit() {
     this.createDates();
     this.loadReservations();
+    this.loadRooms();
   }
 
   createDates() {
@@ -40,7 +44,7 @@ export default class BookRoom implements OnInit {
       days.push(nextDay);
     }
 
-    this.days.set(days);
+    this.roomDayStoreService.days = days;
   }
 
   loadReservations() {
@@ -52,6 +56,18 @@ export default class BookRoom implements OnInit {
   get reservationFilter() {
     return {
       "checkInDate.greaterThen": moment().format('YYYY-MM-DD HH:mm:ss'),
+    }
+  }
+
+  loadRooms() {
+    this.roomService
+      .getAll(this.roomFilter)
+      .subscribe(res => (this.roomDayStoreService.rooms = res.body));
+  }
+
+  get roomFilter() {
+    return {
+
     }
   }
 }

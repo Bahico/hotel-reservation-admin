@@ -12,8 +12,8 @@
   </div>
 
   <div class="body">
-    @for (room of rooms; track room) {
-      <room-day [room]="room" [days]="days()"/>
+    @for (room of rooms(); track room) {
+      <room-day [room]="room" />
     }
   </div>
 

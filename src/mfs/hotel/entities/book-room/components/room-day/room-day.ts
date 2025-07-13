@@ -6,6 +6,7 @@ import ReservationList from '../../../reservation/list/reservation-list';
 import {EntityService, EntityUpdateOptions} from '@components/components';
 import {EntityFormPage} from '@components/pages';
 import {ReservationUpdate} from 'hotel/entities/reservation/update/reservation-update';
+import {RoomModel} from 'hotel/entities/room/models/room.model';
 
 @Component({
   templateUrl: 'room-day.html',
@@ -16,10 +17,10 @@ export class RoomDay {
   private readonly roomDayStoreService = inject(RoomDayStoreService);
   protected readonly entityService = inject(EntityService);
 
-  room = input.required<number>();
-  days = input.required<Date[]>();
+  room = input.required<RoomModel>();
 
   reservations = toSignal(this.roomDayStoreService.reservations$);
+  days = toSignal(this.roomDayStoreService.days$);
 
   isMouseDown = false;
   startDay: Date;
@@ -67,7 +68,8 @@ export class RoomDay {
   addReservation() {
     this.openForm({
       checkInDate: this.startDay,
-      checkOutDate: this.endDay
+      checkOutDate: this.endDay,
+      room: this.room()
     });
     this.startDay = null;
     this.endDay = null;
