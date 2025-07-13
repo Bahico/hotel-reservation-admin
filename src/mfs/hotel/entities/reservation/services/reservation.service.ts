@@ -17,8 +17,8 @@ export class ReservationService extends BaseClientCrudService<ReservationModel> 
       map((response) => {
         return new HttpResponse({
           ...response, body: response.body.map((item) => {
-            // item.checkInDate = new Date(item.checkInDate);
-            // item.checkOutDate = new Date(item.checkOutDate);
+            item.checkInDate = new Date(item.checkInDate);
+            item.checkOutDate = new Date(item.checkOutDate);
             return item;
           })
         });

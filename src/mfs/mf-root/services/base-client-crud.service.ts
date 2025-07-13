@@ -69,7 +69,6 @@ export abstract class BaseClientCrudService<TModel> {
    * @param entity
    */
   submit(entity: TModel): Observable<TModel> {
-    console.log(entity);
     return this.http.post<TModel>(this.resourceUrl, entity);
   }
 

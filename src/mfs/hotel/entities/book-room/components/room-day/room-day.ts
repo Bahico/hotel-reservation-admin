@@ -29,7 +29,6 @@ export class RoomDay {
   @HostListener('mouseleave')
   onMouseLeave() {
     this.onMouseUp();
-    console.log('Component is inactive (no hover)');
   }
 
   onMouseDown(day: Date) {
@@ -61,18 +60,26 @@ export class RoomDay {
 
   getPlansForDate(date: Date): ReservationModel[] {
     return this.reservations().filter(reservation => {
-      return date >= reservation.checkInDate && date <= reservation.checkOutDate;
+      return reservation.room.id === this.room().id && (date >= reservation.checkInDate && date <= reservation.checkOutDate);
     });
   }
 
   addReservation() {
-    this.openForm({
+    const modalRef = this.openForm({
       checkInDate: this.startDay,
       checkOutDate: this.endDay,
       room: this.room()
     });
+
     this.startDay = null;
     this.endDay = null;
+
+
+    modalRef
+      .afterClose
+      .subscribe(res => {
+        this.roomDayStoreService.addReservation = res
+      })
   }
 
   openForm(reservation: Partial<ReservationModel>, duplicate?: true) {

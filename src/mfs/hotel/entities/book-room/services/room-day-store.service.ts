@@ -17,6 +17,10 @@ export class RoomDayStoreService {
     this.reservations$$.next(reservations);
   }
 
+  set addReservation(reservation: ReservationModel) {
+    this.reservations$$.next([...this.reservations$$.value, reservation]);
+  }
+
   get rooms$() {
     return this.rooms$$.asObservable();
   }

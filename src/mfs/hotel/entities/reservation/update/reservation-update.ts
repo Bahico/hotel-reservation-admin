@@ -18,4 +18,5 @@ export class ReservationUpdate extends EntityFormPage<ReservationModel> {
   ) {
     super(reservationService, new ReservationModel());
   }
+
 }
