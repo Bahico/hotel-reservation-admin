@@ -1,0 +1,37 @@
+@if (fields?.length) {
+  <form (ngSubmit)="filter()">
+    <div class="form-row">
+      @for (field of fields; track field) {
+        <div class="col-mb col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <label [ngl-filter-translate]="field.translation" [nextTranslate]="field.nextTranslate"></label>
+
+          @switch (field.type) {
+            @case (type.TEXT) {
+              <ngl-text-input [field]="field" />
+            } @case (type.NUMBER) {
+              <ngl-number-input [field]="field" />
+            } @case (type.AMOUNT) {
+              <ngl-amount-input [field]="field" />
+            } @case (type.DATE) {
+              <ngl-date-picker-input [field]="field" (fieldChange)="fields[$index] = $event" />
+            } @case (type.SELECT) {
+              <ngl-select-input [field]="field" />
+            } @case (type.MULTI_SELECT) {
+              <ngl-select-input [field]="field" mode="multiple" />
+            }
+          }
+        </div>
+      }
+
+      <div class="col-mb col-auto d-flex align-items-end">
+        <button type="submit" class="col-mr" nz-button [nzSize]="size()">
+          {{ 'action.filter' | translate }}
+        </button>
+        <button type="reset" nz-button [nzSize]="size()" nzType="primary" (click)="reset()">
+          {{ 'action.clear' | translate }}
+        </button>
+      </div>
+    </div>
+  </form>
+}
+

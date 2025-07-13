@@ -1,0 +1,27 @@
+.dashboard {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  width: 100%;
+
+  dashboard-sidebar {
+    width: var(--sidebar-with);
+    transition: width 0.5s;
+  }
+
+  &.collapsed {
+    dashboard-sidebar {
+      width: 54px !important;
+    }
+
+    .dashboard-content {
+      width: calc(100% - 54px);
+    }
+  }
+
+  .dashboard-content {
+    width: calc(100% - var(--sidebar-with));
+    display: flex;
+    flex-direction: column;
+  }
+}

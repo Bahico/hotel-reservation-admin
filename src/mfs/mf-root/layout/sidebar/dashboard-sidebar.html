@@ -1,0 +1,49 @@
+<div class="dashboard-sidebar">
+  <div class="sidebar_header">
+    <div class="sidebar_logo" [class.active]="collapsed()">
+      Hotel
+    </div>
+
+    <!--    <span (click)="toggleSidebar()" class="sidebar_toggle_button">-->
+    <!--      <icon-list icon="arrow" />-->
+    <!--    </span>-->
+  </div>
+
+  <div class="dashboard-items">
+    @for (item of dashboardItems(); track item.name) {
+      <div
+        class="dashboard-item"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        (click)="clickItem($index)"
+        [class.open-item]="openIndex() === $index"
+        [class.active-parent]="activeIndex() === $index"
+      >
+        <span class="name">
+          @if (item.icon) {
+            <icon-list [icon]="item.icon"/>
+          }
+          <span>{{ item.name }}</span>
+        </span>
+
+        @if (item.children) {
+          <icon-list icon="right-arrow" [class.open]="openIndex() === $index" class="open-icon"/>
+        }
+      </div>
+
+      @if (item.children) {
+        <div class="children" [class.open]="openIndex() === $index">
+          @for (child of item.children; track $index) {
+            <div
+              class="child"
+              [routerLink]="child.route"
+              routerLinkActive="active"
+            >
+              <span>{{ child.name }}</span>
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+</div>

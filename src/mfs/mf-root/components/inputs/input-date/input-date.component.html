@@ -1,0 +1,4 @@
+<label class="label" [class.required]="info().isRequired" [translate]="info().title"></label>
+
+<nz-date-picker style="width: 100%" nzFormat="dd.MM.yyyy" [formControl]="control()"/>
+<validator [formControl]="control()" [touched]="touched()"/>

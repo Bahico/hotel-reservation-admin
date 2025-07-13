@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@use "components";
+@import "ng-zorro-antd/ng-zorro-antd.min.css";
+
+:root {
+  --primary-color: 24, 144, 255;
+  --background-bg: rgba(244, 244, 244, 1);
+  --secondary-color: rgb(255, 255, 255);
+  --border-color: rgba(229, 231, 233, 1);
+  --border-radius: 10px;
+  --second-border-radius: 20px;
+  --padding: 16px;
+  --text-color: #141316;
+  --transition: all ease 0.3s;
+  --primary-text-color: white;
+  --sidebar-with: 250px;
+  --tui-service-backdrop: rgba(0, 0, 0, 0.55);
+}

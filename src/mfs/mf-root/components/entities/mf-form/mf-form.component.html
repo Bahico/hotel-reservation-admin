@@ -1,0 +1,40 @@
+<form (ngSubmit)="formPage().submit()">
+  <div class="ant-modal-header">
+    <h2>{{ title() }}</h2>
+  </div>
+
+  <div class="modal-body">
+    <div class="mf-form-content ant-row">
+      @for (field of fields(); track $index) {
+        @if (!field.identification || isEdit()) {
+          <div class="ant-col-{{field.span}}" style="padding: 5px">
+            <ng-container
+              *ngComponentOutlet="
+                inputManager.getComponent(field.type);
+                inputs: {
+                  info: field,
+                  control: getControl(field.name),
+                  touched: formPage().touched()
+              }"
+            />
+          </div>
+        }
+      }
+    </div>
+  </div>
+
+  <div class="ant-modal-footer">
+    <button
+      nz-button
+      type="button"
+      (click)="closeModal()"
+      translate="back"
+    ></button>
+    <button
+      nz-button
+      [nzLoading]="formPage().isSubmitting()"
+      nzType="primary"
+      translate="submit"
+    ></button>
+  </div>
+</form>

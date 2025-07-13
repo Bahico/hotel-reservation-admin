@@ -1,0 +1,56 @@
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    h3 {
+        font-weight: 500;
+        font-size: 22px;
+    }
+}
+
+.table-body {
+    background: white;
+    border-radius: 10px;
+    overflow: auto;
+    border: 1px solid #d9d9d9;
+    .flex-end {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+::ng-deep .ant-table-container {
+    border: none !important;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+th, td {
+    min-width: 80px;
+}
+
+
+tbody::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+/* scrollbar itself */
+tbody::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 10px;
+    // border: 4px solid #fff;
+}
+
+/* set button(top and bottom of the scrollbar) */
+tbody::-webkit-scrollbar-button {
+    display: none;
+}
+//tr {
+//    display: flex;
+//}

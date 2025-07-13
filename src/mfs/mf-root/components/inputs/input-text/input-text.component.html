@@ -1,0 +1,15 @@
+@if (control()) {
+    <label class="label" [class.required]="info().isRequired" [translate]="info().title"></label>
+    @if (info().validators?.mask?.mask) {
+        <input
+          type="text"
+          [mask]="info().validators?.mask?.mask"
+          [allowNegativeNumbers]="true"
+          nz-input
+          [formControl]="control()"
+        >
+    } @else {
+        <input type="text" nz-input [formControl]="control()">
+    }
+    <validator [formControl]="control()" [touched]="touched()"/>
+}

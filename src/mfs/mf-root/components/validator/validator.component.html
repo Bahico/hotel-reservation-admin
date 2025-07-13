@@ -1,0 +1,7 @@
+@if (control && control.invalid && (control.dirty || control.touched)) {
+    <div class="errors">
+        @for (error of errors; track $index) {
+            <span class="error" [translate]="error[0]" [translateParams]="error[1]"></span>
+        }
+    </div>
+}

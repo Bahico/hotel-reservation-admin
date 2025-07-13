@@ -1,0 +1,14 @@
+<div class="navbar">
+  <div class="navbar__left">
+    <h2 class="navbar__title">Dashboard</h2>
+  </div>
+
+  <div class="navbar__right">
+    <button nz-button nzType="primary" (click)="loginService.logout()">
+      <span>Logout</span>
+      <nz-icon nzType="logout" nzTheme="outline" />
+    </button>
+
+    <profile-navbar />
+  </div>
+</div>

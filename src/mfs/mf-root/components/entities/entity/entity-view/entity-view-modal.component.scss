@@ -1,0 +1,26 @@
+@use "../entity";
+
+.array {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.entity-item {
+  padding: 4px 8px 4px 8px;
+  border-radius: 8px;
+  background: rgba(155, 162, 177, 0.1);
+}
+
+.ant-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .close {
+        padding: 10px 12px;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid rgba(169, 167, 167, 0.62);
+        cursor: pointer;
+    }
+}

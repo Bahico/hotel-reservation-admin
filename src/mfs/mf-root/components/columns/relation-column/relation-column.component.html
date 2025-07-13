@@ -1,0 +1,2 @@
+{{ data()[column().name] ? (column().relation?.key ? data()[column().name] : data()[column().name][column().relation?.label]) : null }}
+

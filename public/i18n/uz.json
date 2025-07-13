@@ -1,0 +1,9 @@
+{
+  "hello": "World",
+  "entity": {
+    "action": {
+      "refresh": "Qayta yuklash",
+      "add": "Qo'shish"
+    }
+  }
+}

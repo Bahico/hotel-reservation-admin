@@ -1,0 +1,17 @@
+::ng-deep.ant-modal-content {
+    border-radius: var(--border-radius);
+}
+
+::ng-deep.ant-modal-header {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+::ng-deep.ant-modal-body {
+    padding: 0 !important;
+}
+
+.modal-body {
+    padding: 10px;
+    //margin-bottom: 10px;
+}

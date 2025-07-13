@@ -1,0 +1,21 @@
+<h1>Hona band qilish</h1>
+
+<div class="table">
+  <div class="header">
+    <div class="col not-selectable">
+      Xonalar
+    </div>
+
+    @for (day of days(); track day) {
+      <div class="col not-selectable">{{ day.getDate() }} {{ months()[day.getMonth()] }}</div>
+    }
+  </div>
+
+  <div class="body">
+    @for (room of rooms; track room) {
+      <room-day [room]="room" [days]="days()"/>
+    }
+  </div>
+
+</div>
+

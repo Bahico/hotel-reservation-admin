@@ -1,0 +1,11 @@
+@if (data()[column().name]) {
+    <nz-tag nzColor="success">
+        <span nz-icon nzType="check-circle"></span>
+        <span>{{ 'status.true' | translate }}</span>
+    </nz-tag>
+} @else {
+    <nz-tag nzColor="error">
+        <span nz-icon nzType="close-circle"></span>
+        <span>{{ 'status.false' | translate }}</span>
+    </nz-tag>
+}

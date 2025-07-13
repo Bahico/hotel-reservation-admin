@@ -1,0 +1,121 @@
+.dashboard-sidebar {
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: calc(100vh - (var(--padding) * 2));
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: var(--padding);
+  position: sticky;
+  left: 16px;
+  top: 16px;
+
+
+  .sidebar_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+
+    .sidebar_logo {
+      display: flex;
+      align-items: center;
+      column-gap: 9px;
+      //width: 48px;
+      transition: width 0.3s ease;
+      overflow: hidden;
+      font-size: 24px;
+
+      &.active {
+        width: 0;
+      }
+    }
+
+    .sidebar_toggle_button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .dashboard-items, .children {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .dashboard-item, .child {
+      padding: 0 10px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      margin-bottom: 10px;
+
+
+
+      color: var(--text-color);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 40px;
+
+      &.open-item {
+        background-color: #d7dcd6;
+      }
+
+      &.active-parent {
+        background-color: rgb(var(--primary-color));
+        color: var(--primary-text-color);
+      }
+
+      .name {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        icon-list {
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
+        }
+      }
+
+
+      .open-icon {
+        transition: var(--transition);
+
+        &.open {
+          transform: rotate(90deg);
+        }
+      }
+
+      &:hover {
+        background-color: #F8FAF7;
+        color: var(--text-color);
+      }
+
+      &:active, &.active {
+        background-color: rgb(var(--primary-color));
+        color: var(--primary-text-color);
+      }
+    }
+
+    .children {
+      overflow: hidden;
+      max-height: 0;
+
+      &.open {
+        max-height: 500px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .children {
+    padding-left: 10px;
+  }
+}

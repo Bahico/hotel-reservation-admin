@@ -1,0 +1,24 @@
+<div class="table-operations">
+  <div class="content-container">
+    <ng-content />
+  </div>
+
+  <button class="operation-button" nz-button (click)="listPage().showFilter.set(!listPage().showFilter())">
+    <icon-list icon="filter"/>
+    {{ 'action.filter' | translate }}
+  </button>
+
+  <button class="operation-button" nz-button (click)="refreshClick()">
+    <icon-list icon="reload" />
+    {{ 'entity.action.refresh' | translate }}
+  </button>
+
+  <button class="operation-button add-button" nz-button nzType="primary" (click)="openForm()()">
+    <nz-icon nzType="plus" nzTheme="outline" />
+    {{ 'addNew' | translate }}
+  </button>
+
+  <!--    <button class="operation-button" nzSize="large" nz-button>-->
+  <!--        <span nz-icon nzType="question-circle"></span>-->
+  <!--    </button>-->
+</div>

@@ -1,0 +1,51 @@
+@let options = page();
+
+<div class="table-header">
+  <h3>{{ options.title | translate}}</h3>
+  <list-header [openForm]="options.openUpdate" [listPage]="options" />
+</div>
+
+<ngl-filter-field [hidden]="!options.showFilter()" [fields]="options.filterFields" (onFilter)="options.setQuery($event); options.loadData()" />
+
+<alert />
+
+<nz-table
+  [nzData]="options.data()"
+  [nzPageSize]="0"
+  class="table-body"
+>
+  <thead>
+  <tr sort [(predicate)]="options.predicate" [(ascending)]="options.ascending" [callback]="options.loadData">
+    @for (column of columns(); track $index) {
+      <th [sortBy]="column.name">
+        <span>{{column.title | translate}}</span>
+        <icon-list [style.float]="'right'" icon="sort" />
+      </th>
+    }
+    <th nzRight nzWidth="200px"></th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (data of options.data(); track $index) {
+      <tr>
+        @for (column of columns(); track $index) {
+          <td>
+            <ng-container *ngComponentOutlet="columnManagerService.getComponent(column.type); inputs: {column, data}" />
+          </td>
+        }
+        <td nzRight>
+          <list-row-actions [formPage]="options" [data]="data"></list-row-actions>
+        </td>
+      </tr>
+    }
+  </tbody>
+</nz-table>
+
+<div class="pagination">
+  <nz-pagination
+    [nzPageIndex]="options.ngbPaginationPage()"
+    [nzTotal]="options.totalItems()"
+    [nzPageSize]="options.itemsPerPage"
+    (nzPageIndexChange)="options.loadData($event)"
+  />
+</div>

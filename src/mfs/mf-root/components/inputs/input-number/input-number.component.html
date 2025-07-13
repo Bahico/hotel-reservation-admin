@@ -1,0 +1,4 @@
+<label [class.required]="info().isRequired" class="label" [translate]="info().title"></label>
+
+<input type="text" mask="separator" nz-input [formControl]="control()">
+<validator [formControl]="control()" [touched]="touched()"/>

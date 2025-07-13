@@ -1,0 +1,16 @@
+<!--<nz-button nzSize="small">-->
+  <button [hidden]="formPage().hidden && formPage().hidden().view" nz-button (click)="formPage().openView(data())">
+    <i nz-icon nzType="eye" class="icon-btn"></i>
+  </button>
+  <button [hidden]="formPage().hidden && formPage().hidden().copy" nz-button
+          (click)="formPage().openUpdate(data(), true)">
+    <span nz-icon nzType="copy" nzTheme="outline"></span>
+  </button>
+  <button [hidden]="formPage().hidden && formPage().hidden().update" nz-button (click)="formPage().openUpdate(data())">
+    <span nz-icon nzType="edit"></span>
+  </button>
+  <button [hidden]="formPage().hidden && formPage().hidden().delete" nz-button nzSize="default" nzDanger
+          (click)="formPage().openDelete(data()['id'])">
+    <span nz-icon nzType="delete"></span>
+  </button>
+<!--</nz-button>-->

@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .infos {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+}

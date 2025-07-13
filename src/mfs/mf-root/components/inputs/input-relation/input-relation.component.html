@@ -1,0 +1,23 @@
+<label [for]="info().name" class="label" [class.required]="info().isRequired" [translate]="info().title"></label>
+
+
+<nz-select
+  style="width: 100%;"
+  [id]="info().name"
+  [nzMode]="mode()"
+  [nzShowSearch]="true"
+  (nzOnSearch)="onSearch($event)"
+  [nzPlaceHolder]="placeHolder()"
+  [formControl]="control()"
+  [nzAllowClear]="true"
+  [compareWith]="compareFn"
+>
+  @for (entity of data(); track $index) {
+    <nz-option
+      [nzValue]="info().relation.key ? entity[info().relation.key] : entity"
+      [nzLabel]="getLabel(entity)"
+    ></nz-option>
+  }
+</nz-select>
+
+<validator [formControl]="control()" [touched]="touched()"/>

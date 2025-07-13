@@ -1,0 +1,51 @@
+.login-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background: #f0f2f5;
+
+  .login-form {
+    background: white;
+    box-shadow: 0 0 10px #ccc;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    width: 300px;
+    border-radius: 30px;
+    gap: 10px;
+
+    .control {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      input {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        outline: none;
+      }
+    }
+
+    button {
+      //margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+}
+
+
+

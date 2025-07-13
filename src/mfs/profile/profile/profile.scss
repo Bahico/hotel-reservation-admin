@@ -1,0 +1,82 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #E5E7E9;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .avatar {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .full-name {
+        display: flex;
+        gap: 5px;
+
+        span {
+          color: #141316;
+          font-feature-settings: 'liga' off, 'clig' off;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+    }
+  }
+
+  .total-information {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px;
+    row-gap: 10px;
+
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #E5E7E9;
+
+    .col {
+      width: calc(100% / 3);
+      display: flex;
+      flex-direction: column;
+      //gap: 10px;
+
+      label {
+        color: #868E96;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      span {
+        color: #141316;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+  }
+}

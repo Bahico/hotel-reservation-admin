@@ -1,0 +1,9 @@
+.errors {
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #dd4c1e;
+}
+
+/*# sourceMappingURL=validator.component.css.map */

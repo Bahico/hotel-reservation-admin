@@ -1,0 +1,47 @@
+.table {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow-x: auto;
+  border: 1px solid #ccc;
+
+  .header {
+    display: flex;
+    width: 100%;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    room-day:last-child .col {
+       border-bottom: none;
+    }
+  }
+
+  .col {
+    width: 80px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
+
+    &:first-child {
+      width: 120px;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  .not-selectable {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+}

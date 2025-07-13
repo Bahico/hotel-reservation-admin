@@ -1,0 +1,23 @@
+import {Component} from '@angular/core';
+import {BaseInput} from '../base/base-input';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ValidatorComponent} from '@components/components/validator/validator.component';
+import {NzInputDirective} from 'ng-zorro-antd/input';
+import {TranslateDirective} from '@ngx-translate/core';
+
+/**
+ *
+ */
+@Component({
+  selector: 'input-password',
+  templateUrl: 'input-password.component.html',
+  imports: [
+    ReactiveFormsModule,
+    ValidatorComponent,
+    NzInputDirective,
+    TranslateDirective,
+  ],
+  styleUrl: '../input-text/input-text.component.scss'
+})
+export class InputPasswordComponent extends BaseInput {
+}

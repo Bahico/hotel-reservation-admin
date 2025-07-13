@@ -1,0 +1,25 @@
+@if (useFunction) {
+  <form (ngSubmit)="delete()">
+    <div class="ant-modal-header">
+      <h5>{{'deleteTitle' | translate}}</h5>
+
+      <!--    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="close()">&times;</button>-->
+    </div>
+
+    <div class="modal-body">
+      <alert />
+
+      <p style="margin-bottom: 0; margin-left: 10px">{{'question.delete' | translate}}</p>
+    </div>
+
+    <div class="ant-modal-footer">
+      <button type="button" nz-button nzSize="large" data-dismiss="modal" (click)="close()">
+        {{'cancel' | translate}}
+      </button>
+
+      <button type="submit" nz-button nzDanger nzSize="large" [nzLoading]="loading">
+        {{'action.delete' | translate}}
+      </button>
+    </div>
+  </form>
+}

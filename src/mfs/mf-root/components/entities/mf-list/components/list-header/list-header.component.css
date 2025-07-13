@@ -1,0 +1,21 @@
+.table-operations {
+    justify-content: space-between;
+    display: flex;
+    padding-bottom: 1rem;
+    gap: 5px;
+}
+
+.content-container {
+    width: 100%;
+    align-content: center;
+}
+
+
+.operation-button {
+  display: flex;
+
+  icon-list {
+    margin-right: 10px;
+    width: 15px;
+  }
+}

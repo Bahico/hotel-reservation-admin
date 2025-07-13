@@ -1,0 +1,46 @@
+@let account = accountService.account | async;
+
+@if (account) {
+  <div class="header">
+    <div class="left">
+      <img class="avatar" [src]="account.imageUrl || emptyAvatar" (error)="onImgError($event)" alt="">
+      <div class="full-name">
+        <span>{{ account.lastName }}</span>
+        <span>{{ account.firstName }}</span>
+      </div>
+    </div>
+
+    <button nz-button>
+      <nz-icon nzType="edit" />
+      Change avatar
+    </button>
+  </div>
+
+  <div class="total-information">
+    <div class="col">
+      <label>First name</label>
+      <span>{{account.firstName}}</span>
+    </div>
+    <div class="col">
+      <label>Last name</label>
+      <span>{{account.lastName}}</span>
+    </div>
+    <div class="col">
+      <label>Email</label>
+      <span>{{account.email}}</span>
+    </div>
+    <div class="col">
+      <label>Login</label>
+      <span>{{account.login}}</span>
+    </div>
+    <div class="col">
+      <label>Phone number</label>
+      <span>+{{account.phoneNumber}}</span>
+    </div>
+    <div class="col">
+      <label>Lang Key</label>
+      <span>{{account.langKey}}</span>
+    </div>
+  </div>
+}
+

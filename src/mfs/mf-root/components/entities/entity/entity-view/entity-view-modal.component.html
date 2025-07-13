@@ -1,0 +1,111 @@
+<div class="ant-modal-header">
+    <h4 class="modal-title" [translate]="titleTranslation || 'entity-view'" [translateParams]="{ id: id }">
+        View
+    </h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="close()">&times;</button>
+</div>
+
+<div class="modal-body">
+    <nz-list id="nz-list" nzBordered nzSize="small">
+        @for (item of data; track $index) {
+
+            <nz-list-item>
+                <span class="font-weight-bold" translate="{{ item.translation }}"></span>
+
+                <div class="ml-3" style="max-width: 70%; text-align: end;">
+                    @switch (item.type) {
+                        @case ('date') {
+                            <span>{{ item.value | date: item.date || 'dd.MM.yyyy' }}</span>
+                        }
+                        @case ('mask') {
+                            <span>{{ item.value | mask: item.mask }}</span>
+                        }
+                        @case ('translation') {
+                            <span>{{ item.translation | translate }}</span>
+                        }
+                        @case ('boolean') {
+                            <span [boolean-badge]="item.value" type="{{ item.boolean }}">{{ item.value }} </span>
+                        }
+                        @case ('object') {
+                            <span>
+                                  {{ item.options.valueField ? item.value : (item.value ? item.value![item.options.labelField] : item.value) }}
+                                </span>
+                        }
+                        @case ('link') {
+                            <span>
+<!--                                    @for (v of item.value; track $index) {-->
+                                        <a class="ml-2" (click)="executeLink(item, item.value)" [hidden]="!item.value">{{ item.value }}</a>
+<!--                                    }-->
+                                </span>
+                        }
+                        @case ('image-url') {
+                            <span>
+                                  <img nz-image [nzSrc]="item.value" [alt]="item.value" width="150" height="150"/>
+                                </span>
+                        }
+                        @case ('button') {
+                            <button (click)="log(item)" nz-button
+                                    [class]="item.options.styles">
+                                <span [translate]="item?.translation"></span>
+                            </button>
+                        }
+                        @default {
+                            @if (instanceOfHTMLElement(item.value)) {
+                                <span class="text-right"
+                                      [element-resolver]="item.value"></span>
+                            } @else {
+                                <span class="text-break">{{ item.value }}</span>
+                            }
+                        }
+                    }
+
+                </div>
+            </nz-list-item>
+        }
+    </nz-list>
+
+    @for (item of dataWithType.array; track $index) {
+        <div class="mt-3 p-2">
+            <span class="font-weight-bold" translate="{{ item.translation }}"></span>
+
+            <div class="array">
+                @for (model of item.value; track $index) {
+                    <span class="entity-item">
+                            {{
+                            !item.options?.valueField &&
+                            item.options?.labelField ?
+                                model[item.options.labelField]
+                                : model
+                        }}
+                        </span>
+                }
+            </div>
+        </div>
+    }
+
+
+    @for (item of dataWithType.images; track $index) {
+        <div class="mt-3 p-2">
+            <span class="font-weight-bold" translate="{{ item.translation }}"></span>
+
+            <span style="display: flex">
+                    @for (image of item.value; track $index) {
+                        <img nz-image [nzSrc]="image.url" class="entity-image" alt=""/>
+                    }
+                </span>
+        </div>
+    }
+
+    @for (json of dataWithType.json; track $index) {
+        <div class="mt-3 p-2">
+            <span class="font-weight-bold" translate="{{ json.translation }}"></span>
+
+            <!--                <json-viewer [data]="json.value"></json-viewer>-->
+        </div>
+    }
+</div>
+
+<div class="ant-modal-footer">
+    <button type="button" nz-button nzSize="large" translate="back" (click)="close()"></button>
+</div>

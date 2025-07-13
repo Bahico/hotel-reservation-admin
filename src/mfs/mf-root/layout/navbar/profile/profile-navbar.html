@@ -1,0 +1,10 @@
+@let account = accountService.getAccount();
+@if (account) {
+  <img class="avatar" [src]="account.imageUrl || emptyAvatar" (error)="onImgError($event)" alt="">
+
+  <div class="infos">
+    <span>{{account.lastName}} {{account.firstName}}</span>
+    <span>{{account.authorities.join(", ")}}</span>
+  </div>
+
+}

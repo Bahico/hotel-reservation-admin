@@ -1,0 +1,14 @@
+<label class="label" [class.required]="info().isRequired" [translate]="info().title"></label>
+
+<nz-select
+  [nzPlaceHolder]="placeHolder()"
+  [id]="info().name"
+  style="width: 100%"
+  [formControl]="control()"
+>
+  @for (entity of keys();  track $index) {
+    <nz-option [nzValue]="entity" [nzLabel]="entity | translate"></nz-option>
+  }
+
+</nz-select>
+<validator [formControl]="control()" [touched]="touched()"/>

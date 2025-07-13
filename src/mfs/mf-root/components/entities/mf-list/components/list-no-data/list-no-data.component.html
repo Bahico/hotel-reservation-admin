@@ -1,0 +1,15 @@
+<td [attr.colspan]="colSpan()" style="text-align: center;">
+  @if (isDataLoading()) {
+    <nz-spin nzSimple nzSize="large" />
+  }
+
+  @if (isDataLoading()) {
+    <span>
+      {{ 'data.loading'| translate }}
+    </span>
+  } @else {
+    <span>
+      {{ 'data.noData'| translate }}
+    </span>
+  }
+</td>

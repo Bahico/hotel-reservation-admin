@@ -1,0 +1,81 @@
+.d-flex {
+  display: flex;
+}
+
+.align-items-end {
+  align-items: end;
+}
+
+.col-mr {
+  margin-right: 10px;
+}
+
+.col-mb {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.form-row > .col,
+.form-row > [class*=col-] {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.col-12, .col-sm-6, .col-md-4, .col-lg-3, .col-xl-2, .col-auto {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-12 {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.col-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 576px) {
+  .col-sm-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (min-width: 768px) {
+  .col-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+@media (min-width: 992px) {
+  .col-lg-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-xl-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+  }
+}
+
+/*# sourceMappingURL=ngl-filter-field.component.css.map */

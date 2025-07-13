@@ -1,0 +1,78 @@
+@import "./components/entities/entity/entity.scss";
+
+.operation-button {
+    border-radius: 8px;
+    height: 40px;
+    color: var(--primary-color);
+    background: white;
+    border: 1px solid var(--primary-color);
+    vertical-align: middle;
+}
+
+.operation-button:hover {
+    background: #d1ebf7;
+    border-color: var(--primary-color) !important;
+}
+
+.operation-button>span {
+    display: inline-flex;
+    font-size: 16px;
+}
+
+
+.operation-button.button-only-icon {
+    margin-right: 6px;
+    min-width: 45px;
+    width: 45px;
+}
+
+.operation-button.button-only-icon>span {
+    font-size: 18px;
+}
+
+/* List form buttons style */
+.list-refresh-button {
+    line-height: 0.7rem;
+    display: flex;
+    height: 40px;
+    color: green;
+}
+
+.list-refresh-button>button {
+    font-size: 0.7575rem;
+    padding: 0.7rem 1.25rem;
+    border-radius: 8px;
+}
+
+.scrollable {
+    overflow-y: auto;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: .3125rem;
+    height: .3125rem;
+}
+
+.scrollable::-webkit-scrollbar-corner {
+    background: #f7f9fc;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: #e4e9f2;
+    cursor: pointer;
+    border-radius: calc(0.3125rem* .5);
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: #f7f9fc;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.required-asterics {
+    color: red;
+    margin-left: 2px;
+}
+
