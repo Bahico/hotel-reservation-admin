@@ -1,0 +1,18 @@
+entity Organization {
+    id Long,
+    tenantId Long required unique
+    inn Long required
+    name String required minlength(3) maxlength(100) unique,
+    description String maxlength(5000),
+    registrationNumber String required unique,
+    email String required pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+    phoneNumber String,
+    address String maxlength(255),
+    parentId Long, // For hierarchical structures (optional)
+    isActive Boolean required,
+}
+
+dto * with mapstruct
+service * with serviceImpl
+paginate * with pagination
+filter *

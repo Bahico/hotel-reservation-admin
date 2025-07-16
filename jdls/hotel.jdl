@@ -1,0 +1,71 @@
+enum ReservationStatus {
+  NEW, ACTIVE, NOT_ACTIVE
+}
+
+entity Hotel {
+  id Long
+  name String required minlength(1) maxlength(250)
+  address String required maxlength(1) maxlength(3000)
+}
+
+entity Amenity {
+  id Long
+  name String required minlength(1) maxlength(500)
+  description String minlength(1) maxlength(3000)
+}
+
+entity RoomType {
+  id Long
+  name String required minlength(1) maxlength(500)
+  numberBeds Integer required min(1)
+  maxOccupancy Integer required min(1)
+  basePrice Double required
+}
+
+entity Room {
+  id Long
+  number Integer required min(1)
+}
+
+entity RoomPricing {
+  id Long
+  date LocalDate required
+  price Double required
+}
+
+entity Reservation {
+  id Long
+  checkInDate Instant required
+  checkOutDate Instant required
+  totalPrice Double required
+  status ReservationStatus required
+}
+
+entity RoomInventory {
+  id Long
+  availableRoomsCount Integer required
+}
+
+entity ReservationUser {
+  id Long
+  name String required
+}
+
+relationship ManyToOne {
+  Reservation{user} to ReservationUser
+  Reservation{room} to Room
+  RoomPricing{roomType} to RoomType
+  RoomInventory{roomType} to RoomType
+  Room{hotel} to Hotel
+  Room{type} to RoomType
+}
+
+relationship ManyToMany {
+  RoomType{amenities} to Amenity
+  Hotel{amenities} to Amenity
+}
+
+dto * with mapstruct
+service * with serviceImpl
+paginate * with pagination
+filter *

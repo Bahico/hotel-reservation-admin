@@ -1,0 +1,61 @@
+entity User {
+  id Long
+  login String required unique minlength(3) maxlength(120)
+  password String required
+  phoneNumber String required
+  firstName String required minlength(1) maxlength(120)
+  lastName String required minlength(1) maxlength(120)
+  email String required
+  isActive Boolean required
+  designedName String required
+  langKey String
+  imageUrl String
+  lastLoginDate Instant
+  isDeleted Boolean
+}
+
+entity Permission {
+  id Long
+  name String required
+  designedName String required
+  isDeleted Boolean
+}
+
+entity Role {
+  id Long
+  name String required
+  designedName String required
+  isDeleted Boolean
+}
+
+entity UserRole {
+  id Long
+}
+
+entity RolePermission {
+  id Long
+}
+
+entity Tenant {
+  id Long
+  name String required
+  designedName String required
+  isDeleted Boolean
+}
+
+relationship OneToOne {
+  UserRole{role} to Role
+  UserRole{user} to User
+
+  RolePermission{role} to Role
+  RolePermission{permission} to Permission
+}
+
+relationship ManyToOne {
+  User{tenant} to Tenant
+}
+
+dto * with mapstruct
+service * with serviceImpl
+paginate * with pagination
+filter *

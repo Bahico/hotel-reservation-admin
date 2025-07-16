@@ -24,6 +24,8 @@ export class TokenService {
     if (!token) {
       localStorage.removeItem('id_token');
       localStorage.removeItem('refresh_token');
+      this.token$ = null;
+      this.refreshToken$ = null;
     } else {
       localStorage.setItem('id_token', token.id_token);
       localStorage.setItem('refresh_token', token.refresh_token);
