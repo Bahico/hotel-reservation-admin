@@ -7,19 +7,24 @@ import {EntityService, EntityUpdateOptions} from '@components/components';
 import {EntityFormPage} from '@components/pages';
 import {ReservationUpdate} from 'hotel/entities/reservation/update/reservation-update';
 import {RoomModel} from 'hotel/entities/room/models/room.model';
+import {filter} from 'rxjs/operators';
+import {RoomDay} from 'hotel/entities/book-room/components/room-days/room-day/room-day';
 
 @Component({
-  templateUrl: 'room-day.html',
-  styleUrl: 'room-day.scss',
-  selector: 'room-day',
+  templateUrl: 'room-days.html',
+  styleUrl: 'room-days.scss',
+  selector: 'room-days',
+  imports: [
+    RoomDay
+  ]
 })
-export class RoomDay {
+export class RoomDays {
   private readonly roomDayStoreService = inject(RoomDayStoreService);
   protected readonly entityService = inject(EntityService);
 
   room = input.required<RoomModel>();
 
-  reservations = toSignal(this.roomDayStoreService.reservations$);
+  reservations = toSignal(this.roomDayStoreService.reservationsFilter$(this.room().id));
   days = toSignal(this.roomDayStoreService.days$);
 
   isMouseDown = false;
@@ -77,6 +82,7 @@ export class RoomDay {
 
     modalRef
       .afterClose
+      .pipe(filter(res => !!res))
       .subscribe(res => {
         this.roomDayStoreService.addReservation = res
       })

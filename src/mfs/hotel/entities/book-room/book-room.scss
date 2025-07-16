@@ -21,7 +21,7 @@
   }
 
   .col {
-    width: 80px;
+    width: var(--col-width);
     height: 50px;
     display: flex;
     align-items: center;
@@ -43,5 +43,6 @@
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    cursor: default;
   }
 }

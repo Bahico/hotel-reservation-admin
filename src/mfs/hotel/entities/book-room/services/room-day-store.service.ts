@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {ReservationModel} from '../../reservation/models/reservation.model';
 import {BehaviorSubject} from 'rxjs';
 import {RoomModel} from 'hotel/entities/room/models/room.model';
+import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class RoomDayStoreService {
@@ -9,8 +10,11 @@ export class RoomDayStoreService {
   private readonly rooms$$ = new BehaviorSubject<RoomModel[]>([]);
   private readonly days$$ = new BehaviorSubject<Date[]>([]);
 
-  get reservations$() {
-    return this.reservations$$.asObservable();
+  readonly colWidth = '80px';
+
+  reservationsFilter$(roomId: number) {
+    return this.reservations$$.asObservable()
+      .pipe(map((reservations: ReservationModel[]) => reservations.filter(reservation => reservation.room.id === roomId)));
   }
 
   set reservations(reservations: ReservationModel[]) {

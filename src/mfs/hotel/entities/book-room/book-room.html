@@ -1,6 +1,6 @@
 <h1>Hona band qilish</h1>
 
-<div class="table">
+<div class="table" style="--col-width: {{roomDayStoreService.colWidth}}">
   <div class="header">
     <div class="col not-selectable">
       Xonalar
@@ -13,7 +13,7 @@
 
   <div class="body">
     @for (room of rooms(); track room) {
-      <room-day [room]="room" />
+      <room-days [room]="room"/>
     }
   </div>
 

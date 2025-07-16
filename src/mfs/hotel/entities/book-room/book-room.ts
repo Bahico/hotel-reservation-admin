@@ -6,7 +6,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { RoomDayStoreService } from './services/room-day-store.service';
-import { RoomDay } from './components/room-day/room-day';
+import { RoomDays } from './components/room-days/room-days';
 import { months } from '../../core/month';
 import {ReservationService} from 'hotel/entities/reservation/services/reservation.service';
 import moment from 'moment';
@@ -15,12 +15,12 @@ import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   templateUrl: 'book-room.html',
-  imports: [RoomDay],
+  imports: [RoomDays],
   styleUrl: 'book-room.scss',
   encapsulation: ViewEncapsulation.ShadowDom,
 })
 export default class BookRoom implements OnInit {
-  private readonly roomDayStoreService = inject(RoomDayStoreService);
+  protected readonly roomDayStoreService = inject(RoomDayStoreService);
   private readonly reservationService = inject(ReservationService);
   private readonly roomService = inject(RoomService);
 

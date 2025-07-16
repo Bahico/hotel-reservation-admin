@@ -8,7 +8,6 @@ import {RootSharedModule} from '@components/root-shared.module';
 
 @Component({
   imports: [MfList, RootSharedModule],
-  providers: [ReservationUserService],
   template: `
     <mf-list [page]="this"/>
   `

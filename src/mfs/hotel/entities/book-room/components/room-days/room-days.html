@@ -1,19 +1,12 @@
 <div class="col not-selectable">{{ room().number }}-xona</div>
 @for (day of days(); track day) {
-  <div
+
+  <room-day
     class="day col"
+    [day]="day"
     [class.selected]="isSelected(day)"
     (mousedown)="onMouseDown(day)"
     (mouseenter)="onMouseEnter(day)"
     (mouseup)="onMouseUp()"
-  >
-
-    <div class="day-plans">
-      @for (plan of getPlansForDate(day); track plan) {
-        <div class="plan-badge">
-          {{ plan.status }}
-        </div>
-      }
-    </div>
-  </div>
+  />
 }

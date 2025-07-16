@@ -1,0 +1,7 @@
+<div class="day-plans">
+  @for (plan of getPlansForDate(day); track plan) {
+    <div class="plan-badge">
+      {{ plan.status }}
+    </div>
+  }
+</div>
