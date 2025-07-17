@@ -1,7 +1,7 @@
 <div class="day-plans">
-  @for (plan of getPlansForDate(day); track plan) {
+  @if (reservation()) {
     <div class="plan-badge">
-      {{ plan.status }}
+      {{ reservation().user.name }}
     </div>
   }
 </div>

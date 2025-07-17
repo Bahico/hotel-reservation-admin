@@ -4,6 +4,7 @@
   <room-day
     class="day col"
     [day]="day"
+    [room]="room()"
     [class.selected]="isSelected(day)"
     (mousedown)="onMouseDown(day)"
     (mouseenter)="onMouseEnter(day)"

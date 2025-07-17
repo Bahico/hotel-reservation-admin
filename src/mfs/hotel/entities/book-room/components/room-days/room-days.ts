@@ -63,12 +63,6 @@ export class RoomDays {
     return day >= min && day <= max;
   }
 
-  getPlansForDate(date: Date): ReservationModel[] {
-    return this.reservations().filter(reservation => {
-      return reservation.room.id === this.room().id && (date >= reservation.checkInDate && date <= reservation.checkOutDate);
-    });
-  }
-
   addReservation() {
     const modalRef = this.openForm({
       checkInDate: this.startDay,
