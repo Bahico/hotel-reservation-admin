@@ -8,130 +8,88 @@ import {EntityRelation} from '@components/logics';
  */
 export class EntityDecoratorInfo {
 
-    /**
-     *
-     */
-    name: string;
+  /**
+   *
+   */
+  name: string;
 
-    /**
-     *
-     */
-    identification: boolean;
+  /**
+   *
+   */
+  identification: boolean;
 
-    /**
-     *
-     */
-    title: string;
+  /**
+   *
+   */
+  title: string;
 
-    /**
-     *
-     */
-    isDisplay: boolean;
+  /**
+   *
+   */
+  isDisplay: boolean;
 
-    /**
-     *
-     */
-    isEditable: boolean;
+  /**
+   *
+   */
+  isEditable: boolean;
 
-    /**
-     *
-     */
-    isRequired: boolean;
+  /**
+   *
+   */
+  isRequired: boolean;
 
-    /**
-     *
-     */
-    validators: ValidatorModel = {};
+  /**
+   *
+   */
+  validators: ValidatorModel = {};
 
-    /**
-     *
-     */
-    validatorFuncs: ValidatorFunctionModel[];
+  /**
+   *
+   */
+  validatorFuncs: ValidatorFunctionModel[];
 
-    /**
-     *
-     */
-    isNullable: boolean;
+  /**
+   *
+   */
+  isNullable: boolean;
 
-    /**
-     *
-     */
-    selectService: any;
+  /**
+   *
+   */
+  selectService: any;
 
-    /**
-     *
-     */
-    relation?: EntityRelation;
+  /**
+   *
+   */
+  relation?: EntityRelation;
 
-    /**
-     *
-     */
-    enumType: Type<any>;
+  /**
+   *
+   */
+  enumType: Type<any>;
 
-    /**
-     *
-     */
-    type: any;
+  /**
+   *
+   */
+  type: any;
 
-    /**
-     *
-     */
-    notCode: boolean;
+  /**
+   *
+   */
+  notCode: boolean;
 
-    /**
-     *
-     */
-    singleFilter: boolean;
+  /**
+   *
+   */
+  singleFilter: boolean;
 
-    /**
-     * min 1; max 12
-     */
-    span: number;
+  /**
+   * min 1; max 12
+   */
+  span: number;
 
-    /**
-     *
-     */
-    get isStringType(): boolean {
-        return this.isTypeof(this.type, 'String');
-    }
-
-    /**
-     *
-     */
-    get isPercentageType(): boolean {
-        return this.isTypeof(this.type, 'Percentage');
-    }
-
-    /**
-     *
-     */
-    get isNumberType(): boolean {
-        return this.isTypeof(this.type, 'Number');
-    }
-
-    /**
-     *
-     */
-    get isDateType(): boolean {
-        return this.isTypeof(this.type, 'Date');
-    }
-
-    /**
-     *
-     */
-    get isBooleanType(): boolean {
-        return this.isTypeof(this.type, 'Boolean');
-    }
-
-    /**
-     *
-     * @param classType
-     * @param typeName
-     */
-    isTypeof(classType: any, typeName: any) {
-        if (classType && classType.name)
-            return classType.name == typeName;
-
-        return typeof classType === typeName;
-    }
+  /**
+   * for date show time
+   */
+  showTime: boolean;
 }

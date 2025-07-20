@@ -4,6 +4,7 @@ import { RoomService } from '../../room/services/room.service';
 import { RoomModel } from '../../room/models/room.model';
 import {ReservationUserModel} from 'hotel/entities/reservation-user/models/reservation-user.model';
 import {ReservationUserService} from 'hotel/entities/reservation-user/services/reservation-user.service';
+import {ShowTime} from '@components/decorators/show-time';
 
 /**
  *
@@ -22,6 +23,7 @@ export class ReservationModel {
   @Display()
   @Editable()
   @Required
+  @ShowTime
   checkInDate: Date;
 
   /**
@@ -30,6 +32,7 @@ export class ReservationModel {
   @Display()
   @Editable()
   @Required
+  @ShowTime
   checkOutDate: Date;
 
   /**

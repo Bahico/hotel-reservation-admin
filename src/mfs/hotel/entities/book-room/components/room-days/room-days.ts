@@ -24,7 +24,6 @@ export class RoomDays {
 
   room = input.required<RoomModel>();
 
-  reservations = toSignal(this.roomDayStoreService.reservationsFilter$(this.room().id));
   days = toSignal(this.roomDayStoreService.days$);
 
   isMouseDown = false;
@@ -36,13 +35,22 @@ export class RoomDays {
     this.onMouseUp();
   }
 
-  onMouseDown(day: Date) {
-    this.isMouseDown = true;
-    this.startDay = day;
-    this.endDay = day;
+  onMouseDown(day: Date, dayRef: RoomDay) {
+    if (!dayRef.reservation() || (!dayRef.isStart() && dayRef.isEnd())) {
+      this.isMouseDown = true;
+      this.startDay = day;
+      this.endDay = day;
+    }
   }
 
-  onMouseEnter(day: Date) {
+  onMouseEnter(day: Date, dayRef: RoomDay) {
+    if (dayRef.reservation() && (!dayRef.isStart() || dayRef.isEnd()))  {
+      this.isMouseDown = false;
+      this.startDay = null;
+      this.endDay = null;
+      return;
+    }
+
     if (this.isMouseDown) {
       this.endDay = day;
     }
@@ -51,8 +59,11 @@ export class RoomDays {
   onMouseUp() {
     this.isMouseDown = false;
 
-    if (this.startDay && this.endDay) {
+    if (this.startDay && this.endDay && this.startDay.getDay() !== this.endDay.getDay()) {
       this.addReservation();
+    } else {
+      this.startDay = null;
+      this.endDay = null;
     }
   }
 
@@ -64,9 +75,19 @@ export class RoomDays {
   }
 
   addReservation() {
+    let checkInDate: Date;
+    let checkOutDate: Date;
+    if (this.startDay > this.endDay) {
+      checkInDate = this.endDay;
+      checkOutDate = this.startDay;
+    } else {
+      checkInDate = this.startDay;
+      checkOutDate = this.endDay;
+    }
+
     const modalRef = this.openForm({
-      checkInDate: this.startDay,
-      checkOutDate: this.endDay,
+      checkInDate,
+      checkOutDate,
       room: this.room()
     });
 
@@ -79,6 +100,18 @@ export class RoomDays {
       .pipe(filter(res => !!res))
       .subscribe(res => {
         this.roomDayStoreService.addReservation = res
+      })
+  }
+
+  updateReservation(reservation: ReservationModel) {
+    const modalRef = this.openForm(reservation);
+
+    modalRef
+      .afterClose
+      .pipe(filter(res => !!res))
+      .subscribe(res => {
+        const index = this.roomDayStoreService.getIndexReservation(reservation);
+        this.roomDayStoreService.editReservation(res, index);
       })
   }
 

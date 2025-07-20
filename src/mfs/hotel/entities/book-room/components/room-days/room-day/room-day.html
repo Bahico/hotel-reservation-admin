@@ -1,7 +1,21 @@
-<div class="day-plans">
-  @if (reservation()) {
-    <div class="plan-badge">
+@if (reservation()) {
+  <div
+    class="plan-badge not-selectable"
+    [class.start-plan]="isStart()"
+    [class.end-plan]="isEnd()"
+    (click)="updateReservation.emit(reservation())"
+  >
+    @if (isStart()) {
       {{ reservation().user.name }}
-    </div>
-  }
-</div>
+    }
+  </div>
+}
+
+@if (startReservation()) {
+  <div
+    (click)="updateReservation.emit(startReservation())"
+    class="plan-badge start-plan not-selectable"
+  >
+    {{startReservation().user.name}}
+  </div>
+}
