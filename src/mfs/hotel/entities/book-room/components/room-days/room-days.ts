@@ -24,7 +24,6 @@ export class RoomDays {
 
   room = input.required<RoomModel>();
 
-  reservations = toSignal(this.roomDayStoreService.reservationsFilter$(this.room().id));
   days = toSignal(this.roomDayStoreService.days$);
 
   isMouseDown = false;
