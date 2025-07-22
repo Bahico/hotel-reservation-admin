@@ -10,7 +10,7 @@ export class RoomDayStoreService {
   private readonly rooms$$ = new BehaviorSubject<RoomModel[]>([]);
   private readonly days$$ = new BehaviorSubject<Date[]>([]);
 
-  readonly colWidth = '80px';
+  readonly colWidth = '120px';
 
   reservationsFilter$(roomId: number) {
     return this.reservations$$.asObservable()
@@ -23,8 +23,29 @@ export class RoomDayStoreService {
     this.reservations$$.next(reservations);
   }
 
+  getIndexReservation(reservation: ReservationModel): number {
+    return this.reservations$$.value.findIndex(item => item.id === reservation.id);
+  }
+
+  editReservation(reservation: ReservationModel, index: number) {
+    const reservations = this.reservations$$.value;
+    reservations[index] = {
+      ...reservation,
+      checkInDate: new Date(reservation.checkInDate),
+      checkOutDate: new Date(reservation.checkOutDate),
+    };
+    this.reservations$$.next(reservations);
+  }
+
   set addReservation(reservation: ReservationModel) {
-    this.reservations$$.next([...this.reservations$$.value, reservation]);
+    this.reservations$$.next([
+      ...this.reservations$$.value,
+      {
+        ...reservation,
+        checkInDate: new Date(reservation.checkInDate),
+        checkOutDate: new Date(reservation.checkOutDate),
+      }
+    ]);
   }
 
   get rooms$() {

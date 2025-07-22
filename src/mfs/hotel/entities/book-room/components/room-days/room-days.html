@@ -5,9 +5,11 @@
     class="day col"
     [day]="day"
     [room]="room()"
+    (updateReservation)="updateReservation($event)"
+    #dayRef
     [class.selected]="isSelected(day)"
-    (mousedown)="onMouseDown(day)"
-    (mouseenter)="onMouseEnter(day)"
+    (mousedown)="onMouseDown(day, dayRef)"
+    (mouseenter)="onMouseEnter(day, dayRef)"
     (mouseup)="onMouseUp()"
   />
 }
