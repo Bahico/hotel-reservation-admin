@@ -1,5 +1,32 @@
 <h1>Hona band qilish</h1>
 
+<div class="month">
+  <div class="col pointer" (click)="previous()">
+    <nz-icon nzType="left"/>
+  </div>
+  <div class="col">
+    <span>{{ currentYear() }}</span>
+    <span>{{ months()[currentMonth()] }}</span>
+  </div>
+  <div class="col pointer" (click)="next()">
+    <nz-icon nzType="right"/>
+  </div>
+</div>
+
+<div class="filter">
+  <div class="col">
+    <label for="type">Room type</label>
+    <select-entity
+      id="type"
+      [style.width.px]="300"
+      [(ngModel)]="roomType"
+      (ngModelChange)="loadRooms()"
+      label="name"
+      [requestFunc]="roomTypeService.lambda"
+    />
+  </div>
+</div>
+
 <div class="table" [style.--col-width]="roomDayStoreService.colWidth">
   <div class="header">
     <div class="col not-selectable pin-left">

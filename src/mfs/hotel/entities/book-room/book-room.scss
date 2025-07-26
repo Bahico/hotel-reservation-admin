@@ -52,3 +52,35 @@
     cursor: default;
   }
 }
+
+.month {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+
+  margin: 10px 0;
+
+  .col {
+    min-width: 100px;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+
+    &.pointer {
+      cursor: pointer;
+    }
+  }
+}
+
+.filter {
+  display: flex;
+  width: 100%;
+  margin: 10px 0;
+
+  .col {
+    width: 300px;
+  }
+}

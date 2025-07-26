@@ -1,0 +1,14 @@
+<nz-select
+  nzAllowClear
+  nzShowSearch
+  nzServerSearch
+  [style.width.%]="100"
+  [(ngModel)]="itemValue"
+  (ngModelChange)="change()"
+  (nzOnSearch)="search($event)"
+>
+  @for (item of data(); track item[label()]) {
+    <nz-option [nzValue]="value() ? item[value()] : item" [nzLabel]="item[label()]" />
+  }
+</nz-select>
+

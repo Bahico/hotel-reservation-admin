@@ -44,6 +44,12 @@ export abstract class BaseClientCrudService<TModel> {
    *
    * @param query
    */
+  lambda = (query: any): Observable<HttpResponse<TModel[]>> => this.getAll(query);
+
+  /**
+   *
+   * @param query
+   */
   getAll(query: any): Observable<HttpResponse<TModel[]>> {
     return this.http.get<TModel[]>(this.resourceUrl, { params: query, observe: 'response' });
   }

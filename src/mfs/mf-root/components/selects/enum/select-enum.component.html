@@ -1,0 +1,30 @@
+<!--<tui-select-->
+<!--  [tuiTextfieldLabelOutside]="true"-->
+<!--  [valueContent]="options() ? stringify(options()) : loading"-->
+<!--  [(ngModel)]="itemValue"-->
+<!--  (ngModelChange)="change()"-->
+<!--  tuiTextfieldSize="m"-->
+<!--&gt;-->
+<!--  <ng-template tuiDataList>-->
+<!--    @if (options()) {-->
+<!--      <tui-data-list>-->
+<!--        @for (item of options(); track $index) {-->
+<!--          <button-->
+<!--            tuiOption-->
+<!--            type="button"-->
+<!--            [value]="item"-->
+<!--          >-->
+<!--            {{ item }}-->
+<!--          </button>-->
+<!--        }-->
+<!--      </tui-data-list>-->
+<!--    } @else {-->
+<!--      <ng-container *ngTemplateOutlet="loading" />-->
+<!--    }-->
+<!--  </ng-template>-->
+<!--</tui-select>-->
+
+<!--<ng-template #loading>-->
+<!--  <tui-loader class="tui-space_vertical-3 loader"/>-->
+
+<!--</ng-template>-->

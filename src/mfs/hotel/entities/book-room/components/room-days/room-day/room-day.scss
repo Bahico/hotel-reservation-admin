@@ -3,7 +3,7 @@
   color: #1a2a3d;
   height: 80%;
   display: flex;
-  width: 100%;
+  width: calc(100% + 1px);
   align-items: center;
   padding-left: 5px;
   border-bottom: 1px solid rgb(var(--primary-color));

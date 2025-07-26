@@ -1,23 +1,20 @@
-import {Component, HostListener, inject, input, signal} from '@angular/core';
+import {Component, HostListener, inject, input} from '@angular/core';
 import {RoomDayStoreService} from '../../services/room-day-store.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {ReservationModel} from '../../../reservation/models/reservation.model';
-import ReservationList from '../../../reservation/list/reservation-list';
 import {EntityService, EntityUpdateOptions} from '@components/components';
 import {EntityFormPage} from '@components/pages';
 import {ReservationUpdate} from 'hotel/entities/reservation/update/reservation-update';
 import {RoomModel} from 'hotel/entities/room/models/room.model';
 import {filter} from 'rxjs/operators';
 import {RoomDay} from 'hotel/entities/book-room/components/room-days/room-day/room-day';
-import {NzIconDirective} from 'ng-zorro-antd/icon';
 
 @Component({
   templateUrl: 'room-days.html',
   styleUrl: 'room-days.scss',
   selector: 'room-days',
   imports: [
-    RoomDay,
-    NzIconDirective
+    RoomDay
   ]
 })
 export class RoomDays {
@@ -27,7 +24,6 @@ export class RoomDays {
   room = input.required<RoomModel>();
 
   days = toSignal(this.roomDayStoreService.days$);
-  currentMonth = signal<Date>(null);
 
   isMouseDown = false;
   startDay: Date;
