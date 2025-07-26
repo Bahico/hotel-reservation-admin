@@ -1,10 +1,23 @@
-<div class="col not-selectable">{{ room().number }}-xona</div>
+<div class="col not-selectable pin-left">{{ room().number }}-xona</div>
+
+<!--<div class="month">-->
+<!--  <div class="col">-->
+<!--    <nz-icon nzType="left" />-->
+<!--  </div>-->
+<!--  <div class="col">-->
+
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <nz-icon nzType="right" />-->
+<!--  </div>-->
+<!--</div>-->
 
 @for (day of days(); track day) {
   <room-day
     class="day col"
     [day]="day"
     [room]="room()"
+    [first]="$first"
     (updateReservation)="updateReservation($event)"
     #dayRef
     [class.selected]="isSelected(day)"

@@ -35,13 +35,15 @@ export default class BookRoom implements OnInit {
   }
 
   createDates() {
-    const days = [];
     const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
 
-    for (let i = 1; i <= 20; i++) {
-      const nextDay = new Date(today);
-      nextDay.setDate(today.getDate() + i);
-      days.push(nextDay);
+    const days = [];
+    const totalDays = new Date(year, month + 1, 0).getDate();
+
+    for (let day = 1; day <= totalDays; day++) {
+      days.push(new Date(year, month, day));
     }
 
     this.roomDayStoreService.days = days;

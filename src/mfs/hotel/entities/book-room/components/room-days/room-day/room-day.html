@@ -5,7 +5,7 @@
     [class.end-plan]="isEnd()"
     (click)="updateReservation.emit(reservation())"
   >
-    @if (isStart()) {
+    @if (isStart() || first()) {
       {{ reservation().user.name }}
     }
   </div>

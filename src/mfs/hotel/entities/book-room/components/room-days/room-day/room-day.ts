@@ -16,6 +16,7 @@ export class RoomDay implements OnDestroy {
 
   day = input.required<Date>();
   room = input.required<RoomModel>();
+  first = input.required<boolean>();
 
   updateReservation = output<ReservationModel>();
 

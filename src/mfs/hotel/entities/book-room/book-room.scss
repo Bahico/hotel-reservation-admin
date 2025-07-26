@@ -20,6 +20,12 @@
     }
   }
 
+  .pin-left {
+    position: sticky;
+    left: 0;
+    backdrop-filter: blur(10px);
+  }
+
   .col {
     width: var(--col-width);
     height: 50px;
