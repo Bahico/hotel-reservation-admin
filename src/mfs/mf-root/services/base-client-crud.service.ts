@@ -8,7 +8,7 @@ import {GetEndpoint} from '@components/config/get-endpoint';
  *
  */
 export abstract class BaseClientCrudService<TModel> {
-  private readonly getEndpoint = inject(GetEndpoint);
+  protected readonly getEndpoint = inject(GetEndpoint);
 
   /**
    *
@@ -35,7 +35,7 @@ export abstract class BaseClientCrudService<TModel> {
   protected constructor(
     @Inject(String) readonly classType: TModel,
     readonly api: string,
-    private readonly microservice?: string
+    readonly microservice?: string
   ) {
     this.resourceUrl = this.getEndpoint.getEndPoint(api, microservice);
   }

@@ -3,6 +3,9 @@ import {RoleService} from '../../role/services/role.service';
 import {TenantService} from '../../tenant/services/tenant.service';
 import {TenantModel} from '../../tenant/models/tenant.model';
 import { RoleModel } from '../../role/models/role.model';
+import {NotUpdatable} from '@components/decorators/validators/not-updatable';
+import {SetComponents} from '@components/decorators/validators/set-components';
+import {UserPasswordInput} from 'user/entities/user/update/password/user-password';
 
 /**
  *
@@ -21,15 +24,8 @@ export class UserModel {
   @Editable()
   @Required
   @LengthSize(3, 120)
+  @NotUpdatable
   login: string;
-
-  /**
-   *
-   */
-  @Editable()
-  @Required
-  @MinLength(4)
-  password: string;
 
   /**
    *
@@ -121,4 +117,13 @@ export class UserModel {
   @Editable()
   @Required
   activated: boolean;
+
+  /**
+   *
+   */
+  @Editable()
+  @Required
+  @MinLength(4)
+  @SetComponents({form: UserPasswordInput})
+  password: string;
 }

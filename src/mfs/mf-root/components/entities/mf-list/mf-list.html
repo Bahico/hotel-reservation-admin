@@ -30,7 +30,7 @@
       <tr>
         @for (column of columns(); track $index) {
           <td>
-            <ng-container *ngComponentOutlet="columnManagerService.getComponent(column.type); inputs: {column, data}" />
+            <ng-container *ngComponentOutlet="column.components?.list || columnManagerService.getComponent(column.type); inputs: {column, data}" />
           </td>
         }
         <td nzRight>

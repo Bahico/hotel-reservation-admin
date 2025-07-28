@@ -89,6 +89,7 @@ export abstract class BaseFormPage<T extends BaseEntityModel> implements OnInit 
       this.addFieldToFormGroup(field)
     }
     if (this.data && this.data.id) {
+      this.disableControls();
       this.formGroup.patchValue({
         // ...this.data,
         id: this.duplicate ? null : this.data.id
@@ -98,7 +99,16 @@ export abstract class BaseFormPage<T extends BaseEntityModel> implements OnInit 
 
   /**
    *
-   * @returns
+   */
+  disableControls() {
+    for (const field of this.getFields().filter(item => item.isNotUpdatable)) {
+      this.formGroup.get(field.name).disable();
+    }
+  }
+
+  /**
+   *
+   * @returns EntityDecoratorInfo[]
    */
   getFields(): EntityDecoratorInfo[] {
     return ListManager.getColumnsForUpdate(this.classType);

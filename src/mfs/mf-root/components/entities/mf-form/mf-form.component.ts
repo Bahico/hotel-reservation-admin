@@ -1,7 +1,7 @@
 import {Component, computed, inject, input, ViewEncapsulation} from '@angular/core';
 import {EntityFormPage} from '@components/pages';
 import {InputManager} from '@components/logics';
-import {FormControl, FormsModule} from '@angular/forms';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgComponentOutlet} from '@angular/common';
 import {TranslateDirective} from '@ngx-translate/core';
 import {NzButtonComponent} from 'ng-zorro-antd/button';
@@ -17,7 +17,8 @@ import {NzButtonComponent} from 'ng-zorro-antd/button';
     FormsModule,
     NgComponentOutlet,
     TranslateDirective,
-    NzButtonComponent
+    NzButtonComponent,
+    ReactiveFormsModule
   ],
   encapsulation: ViewEncapsulation.None
 })

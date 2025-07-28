@@ -1,4 +1,4 @@
-<form (ngSubmit)="formPage().submit()">
+<form (ngSubmit)="formPage().submit()" [formGroup]="formPage().formGroup">
   <div class="ant-modal-header">
     <h2>{{ title() }}</h2>
   </div>
@@ -10,7 +10,7 @@
           <div class="ant-col-{{field.span}}" style="padding: 5px">
             <ng-container
               *ngComponentOutlet="
-                inputManager.getComponent(field.type);
+                field.components?.form || inputManager.getComponent(field.type);
                 inputs: {
                   info: field,
                   control: getControl(field.name),
