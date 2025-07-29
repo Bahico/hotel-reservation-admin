@@ -12,7 +12,7 @@ export class UserService extends BaseClientCrudService<UserModel> {
   }
 
   override submit(entity: UserModel): Observable<UserModel> {
-    if (entity.id) {
+    if (!entity.id) {
       return this.create(entity);
     }
     return super.submit(entity);
