@@ -37,24 +37,7 @@ export class InputSelectComponent extends BaseInput {
    *
    */
   entities = input<any[]>();
-  entitiesChange = output<any[]>()
-
-  /**
-   *
-   */
-  onGetAllSuccess(res: any[]): void {
-    const items = []
-
-    if (this.info().isNullable)
-      items.push({
-        id: undefined as any,
-        name: 'Tanlanmagan',
-        designedName: ''
-      });
-
-    items.push(...res);
-    this.entitiesChange.emit(items);
-  }
+  entitiesChange = output<any[]>();
 
   /**
    *

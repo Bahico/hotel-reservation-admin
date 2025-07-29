@@ -17,19 +17,4 @@ export class PermissionModel {
   @Editable()
   @Required
   name: string;
-
-  /**
-   *
-   */
-  @Display()
-  @Editable()
-  @Required
-  designedName: string;
-
-  /**
-   *
-   */
-  @Display()
-  @Editable()
-  isDeleted: boolean;
 }

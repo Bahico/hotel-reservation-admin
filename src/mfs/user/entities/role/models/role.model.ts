@@ -17,19 +17,4 @@ export class RoleModel {
   @Editable()
   @Required
   name: string;
-
-  /**
-   *
-   */
-  @Display()
-  @Editable()
-  @Required
-  designedName: string;
-
-  /**
-   *
-   */
-  @Display()
-  @Editable()
-  isDeleted: boolean;
 }

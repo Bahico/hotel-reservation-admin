@@ -1,8 +1,6 @@
-import { Display, Editable, Identification, LengthSize, MinLength, Relation, Required } from '@components/decorators';
-import {RoleService} from '../../role/services/role.service';
+import {Display, Editable, Identification, LengthSize, MinLength, Relation, Required} from '@components/decorators';
 import {TenantService} from '../../tenant/services/tenant.service';
 import {TenantModel} from '../../tenant/models/tenant.model';
-import { RoleModel } from '../../role/models/role.model';
 import {NotUpdatable} from '@components/decorators/validators/not-updatable';
 import {SetComponents} from '@components/decorators/validators/set-components';
 import {UserPasswordInput} from 'user/entities/user/update/password/user-password';
@@ -66,14 +64,6 @@ export class UserModel {
    */
   @Display()
   @Editable()
-  @Required
-  designedName: string;
-
-  /**
-   *
-   */
-  @Display()
-  @Editable()
   langKey: string;
 
   /**
@@ -102,13 +92,6 @@ export class UserModel {
   // @Display()
   // @Editable()
   // authorities: RoleModel[];
-
-  /**
-   *
-   */
-  @Display()
-  @Editable()
-  isDeleted: boolean;
 
   /**
    *

@@ -1,4 +1,5 @@
-import {Display, Editable, Email, Identification, MaxLength, Required, Size} from '@components/decorators';
+import {Display, Editable, Email, Identification, MaxLength, Relation, Required, Size} from '@components/decorators';
+import {OrganizationService} from 'organization/entities/organization/services/organization.service';
 
 /**
  *
@@ -10,14 +11,6 @@ export class OrganizationModel {
    */
   @Identification
   id: number;
-
-  /**
-   *
-   */
-  @Display()
-  @Editable()
-  @Required
-  tenantId: number;
 
   /**
    *
@@ -81,6 +74,11 @@ export class OrganizationModel {
    */
   @Display()
   @Editable()
+  @Relation({
+    service: OrganizationService,
+    label: 'number',
+    key: 'id'
+  })
   parentId: number;
 
   /**

@@ -7,11 +7,9 @@ export interface AccountModel {
   firstName: string;
   lastName: string;
   email: string;
-  designedName: string;
   langKey: string;
   imageUrl: string;
   tenant: any;
   authorities: string[];
-  isDeleted: boolean;
   activated: boolean;
 }

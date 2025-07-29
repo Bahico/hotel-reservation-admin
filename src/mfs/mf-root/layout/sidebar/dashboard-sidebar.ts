@@ -15,16 +15,19 @@ import {
   RouterLinkActive,
   UrlSegment,
 } from '@angular/router';
+import {OrganizationService} from '@components/account/organization/organization.service';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'dashboard-sidebar',
   templateUrl: 'dashboard-sidebar.html',
-  imports: [IconComponent, RouterLink, RouterLinkActive],
+  imports: [IconComponent, RouterLink, RouterLinkActive, AsyncPipe],
   styleUrl: 'dashboard-sidebar.scss',
 })
 export class DashboardSidebar implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  protected readonly organizationService = inject(OrganizationService);
 
   collapsed = input(false);
   collapsedChange = output<boolean>();
