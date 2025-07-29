@@ -27,6 +27,6 @@ export class UserService extends BaseClientCrudService<UserModel> {
   }
 
   changePassword(data: {password: string; login: string}): Observable<UserModel> {
-    return this.http.post<UserModel>(this.getEndpoint.getEndPoint('api/account/change-password', this.microservice), data);
+    return this.http.post<UserModel>(this.getEndpoint.getEndPoint('api/account/change-password-with-login', this.microservice), data);
   }
 }
