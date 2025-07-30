@@ -78,12 +78,11 @@ export class UserModel {
    */
   @Relation({
     service: TenantService,
-    label: 'name',
-    key: 'id'
+    label: 'name'
   })
   @Display
   @Editable
-  tenantId: number;
+  tenant: number;
 
   // @Relation({
   //   service: RoleService,
