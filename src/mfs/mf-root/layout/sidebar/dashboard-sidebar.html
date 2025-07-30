@@ -1,7 +1,7 @@
 <div class="dashboard-sidebar">
   <div class="sidebar_header">
     <div class="sidebar_logo" [class.active]="collapsed()">
-      {{(organizationService.organization$ | async)?.name}}
+      {{organizationName$ | async}}
     </div>
 
     <!--    <span (click)="toggleSidebar()" class="sidebar_toggle_button">-->

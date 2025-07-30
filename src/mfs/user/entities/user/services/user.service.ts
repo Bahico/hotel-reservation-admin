@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseClientCrudService } from '@components/services';
 import { UserModel } from '../models/user.model';
 import { Observable } from 'rxjs';
+import {HttpResponse} from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class UserService extends BaseClientCrudService<UserModel> {
@@ -9,6 +10,10 @@ export class UserService extends BaseClientCrudService<UserModel> {
 
   constructor() {
     super(new UserModel(), 'api/users', 'userms');
+  }
+
+  override getAll(query: any): Observable<HttpResponse<UserModel[]>> {
+    return this.http.get<UserModel[]>(`${this.resourceUrl}/read-only`, { params: query, observe: 'response' });
   }
 
   override submit(entity: UserModel): Observable<UserModel> {

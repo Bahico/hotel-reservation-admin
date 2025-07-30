@@ -55,11 +55,5 @@ export class UserPasswordInput extends BaseInput implements OnInit {
     })
     modalRef.componentInstance.nzModalRef = modalRef;
     modalRef.componentInstance.login = this.formGroup.controls.login.value;
-
-    modalRef
-      .afterClose
-      .subscribe((password: string) => {
-        console.log(password);
-      })
   }
 }

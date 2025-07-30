@@ -17,6 +17,7 @@ import {
 } from '@angular/router';
 import {OrganizationService} from '@components/account/organization/organization.service';
 import {AsyncPipe} from '@angular/common';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'dashboard-sidebar',
@@ -35,6 +36,8 @@ export class DashboardSidebar implements OnInit {
   dashboardItems = input.required<DashboardItem[]>();
   openIndex = signal(-1);
   activeIndex = signal(-1);
+
+  readonly organizationName$ = this.organizationService.organization$.pipe(map(organization => organization.name || 'Hotel'));
 
   ngOnInit() {
     this.changeIndex();

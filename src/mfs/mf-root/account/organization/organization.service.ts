@@ -1,8 +1,8 @@
 import {inject, Injectable} from '@angular/core';
 import {GetEndpoint} from '@components/config';
-import {HttpClient} from '@angular/common/http';
-import { OrganizationModel } from './organization.model';
-import {BehaviorSubject, concatMap, of, retry} from 'rxjs';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {OrganizationModel} from './organization.model';
+import {BehaviorSubject, catchError, retry, tap} from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class OrganizationService {
@@ -11,14 +11,19 @@ export class OrganizationService {
 
   private readonly resourceUrl = this.getEndpoint.getEndPoint('api/organizations/current', 'organizationms');
 
-  private readonly organization$$ = new BehaviorSubject<OrganizationModel>(null);
+  private readonly organization$$ = new BehaviorSubject<Partial<OrganizationModel>>(null);
 
   get organization$() {
-    return this.organization$$
-      .asObservable()
+    if (this.organization$$.value)
+      return this.organization$$.asObservable();
+
+    return this.http.get<OrganizationModel>(this.resourceUrl)
       .pipe(
-        concatMap(organization => organization ? of(organization) : this.http.get<OrganizationModel>(this.resourceUrl)),
-        retry(3)
+        tap((res: OrganizationModel) => this.organization$$.next(res)),
+        catchError((err: HttpErrorResponse) => {
+          this.organization$$.next({});
+          return this.organization$$.asObservable();
+        })
       );
   }
 }

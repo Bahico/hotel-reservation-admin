@@ -105,7 +105,6 @@ export class UserModel {
    *
    */
   @Editable()
-  @Required
   @MinLength(4)
   @SetComponents({form: UserPasswordInput})
   password: string;

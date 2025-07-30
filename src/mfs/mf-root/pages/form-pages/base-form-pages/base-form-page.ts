@@ -178,6 +178,7 @@ export abstract class BaseFormPage<T extends BaseEntityModel> implements OnInit 
    *
    */
   checkForm() {
+    console.log(this.formGroup.errors, this.formGroup)
     if (this.formGroup.invalid) {
       this.touched.set(true);
       return false;
