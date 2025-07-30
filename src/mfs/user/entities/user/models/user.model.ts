@@ -18,8 +18,8 @@ export class UserModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   @LengthSize(3, 120)
   @NotUpdatable
@@ -28,16 +28,16 @@ export class UserModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   phoneNumber: string;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   @LengthSize(1, 120)
   firstName: string;
@@ -45,8 +45,8 @@ export class UserModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   @LengthSize(1, 120)
   lastName: string;
@@ -54,23 +54,23 @@ export class UserModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   email: string;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   langKey: string;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   imageUrl: string;
 
   /**
@@ -78,33 +78,34 @@ export class UserModel {
    */
   @Relation({
     service: TenantService,
-    label: 'name'
+    label: 'name',
+    key: 'id'
   })
-  @Display()
-  @Editable()
-  tenant: TenantModel;
+  @Display
+  @Editable
+  tenantId: number;
 
   // @Relation({
   //   service: RoleService,
   //   label: 'name',
   //   multi: true
   // })
-  // @Display()
-  // @Editable()
+  // @Display
+  // @Editable
   // authorities: RoleModel[];
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   activated: boolean;
 
   /**
    *
    */
-  @Editable()
+  @Editable
   @MinLength(4)
   @SetComponents({form: UserPasswordInput})
   password: string;

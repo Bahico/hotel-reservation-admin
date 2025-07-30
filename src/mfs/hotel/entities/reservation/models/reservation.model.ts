@@ -20,8 +20,8 @@ export class ReservationModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   @ShowTime
   checkInDate: Date;
@@ -29,8 +29,8 @@ export class ReservationModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   @ShowTime
   checkOutDate: Date;
@@ -38,8 +38,8 @@ export class ReservationModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   totalPrice: number;
 
@@ -47,7 +47,7 @@ export class ReservationModel {
    *
    */
   @EditableEnum(ReservationStatus)
-  @Display()
+  @Display
   @Required
   status: ReservationStatus;
 
@@ -58,8 +58,8 @@ export class ReservationModel {
     service: RoomService,
     label: 'number'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   room: RoomModel;
 
@@ -70,8 +70,8 @@ export class ReservationModel {
     service: ReservationUserService,
     label: 'name'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   user: ReservationUserModel;
 }

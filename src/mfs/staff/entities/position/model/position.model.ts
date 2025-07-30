@@ -26,8 +26,9 @@ export class PositionModel {
   /**
    *
    */
-  @Display()
-  @Editable(12)
+  @Display
+  @Editable
+  @Span(12)
   @Mask({mask: "0*"})
   @LengthSize(1, 5)
   @SingleFilter
@@ -37,8 +38,9 @@ export class PositionModel {
   /**
    *
    */
-  @Display()
-  @Editable(12)
+  @Display
+  @Editable
+  @Span(12)
   @MaxLength(500)
   @MinLength(1)
   @Required

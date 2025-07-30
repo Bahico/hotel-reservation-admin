@@ -1,4 +1,14 @@
-import {Display, Editable, Email, Identification, MaxLength, Relation, Required, Size} from '@components/decorators';
+import {
+  Display,
+  Editable,
+  Email,
+  Identification,
+  MaxLength,
+  Relation,
+  Required,
+  Size,
+  Span
+} from '@components/decorators';
 import {OrganizationService} from 'organization/entities/organization/services/organization.service';
 
 /**
@@ -15,16 +25,16 @@ export class OrganizationModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   inn: number;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   @Size(3, 100)
   name: string;
@@ -32,24 +42,31 @@ export class OrganizationModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @MaxLength(5000)
   description: string;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   registrationNumber: string;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Span(0)
+  tenantId: string;
+
+  /**
+   *
+   */
+  @Display
+  @Editable
   @Email
   @Required
   email: string;
@@ -57,34 +74,35 @@ export class OrganizationModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   phoneNumber: string;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @MaxLength(255)
   address: string;
 
   /**
    *
    */
-  @Display()
-  @Editable()
   @Relation({
     service: OrganizationService,
-    label: 'number',
+    label: 'name',
     key: 'id'
   })
+  @Display
+  @Editable
   parentId: number;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
+  @Span(12)
   isActive: boolean;
 }

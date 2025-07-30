@@ -13,8 +13,8 @@ export class TenantModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   name: string;
 }

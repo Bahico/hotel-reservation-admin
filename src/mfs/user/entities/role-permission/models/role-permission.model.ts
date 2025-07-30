@@ -21,8 +21,8 @@ export class RolePermissionModel {
     service: RoleService,
     label: 'name'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   role: RoleModel;
 
   /**
@@ -32,7 +32,7 @@ export class RolePermissionModel {
     service: PermissionService,
     label: 'name'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   permission: PermissionModel;
 }

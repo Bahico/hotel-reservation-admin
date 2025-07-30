@@ -92,7 +92,7 @@ export class EntityDecoratorInfo {
   /**
    * min 1; max 12
    */
-  span: number;
+  span: number = 8;
 
   /**
    * for date show time

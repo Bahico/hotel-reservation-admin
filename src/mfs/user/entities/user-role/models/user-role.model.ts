@@ -21,8 +21,8 @@ export class UserRoleModel {
     service: RoleService,
     label: 'number'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   role: RoleModel;
 
   /**
@@ -32,7 +32,7 @@ export class UserRoleModel {
     service: UserService,
     label: 'number'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   user: UserModel;
 }

@@ -3,7 +3,7 @@ import {EntityRelation} from '@components/logics';
 
 
 /**
- *
+ * need first stay from all
  * @returns
  */
 export function Relation(options: EntityRelation) {

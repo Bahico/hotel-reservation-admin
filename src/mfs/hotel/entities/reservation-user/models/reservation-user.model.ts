@@ -14,8 +14,8 @@ export class ReservationUserModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   name: string;
 }

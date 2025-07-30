@@ -16,16 +16,16 @@ export class RoomPricingModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   date: Date;
 
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   price: number;
 
@@ -36,8 +36,8 @@ export class RoomPricingModel {
     service: RoomTypeService,
     label: 'name'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   roomType: RoomTypeModel;
 }

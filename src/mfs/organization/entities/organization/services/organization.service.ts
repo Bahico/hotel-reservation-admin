@@ -5,7 +5,7 @@ import {OrganizationModel} from '../models/organization.model';
 /**
  *
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class OrganizationService extends BaseClientCrudService<OrganizationModel> {
 
   /**

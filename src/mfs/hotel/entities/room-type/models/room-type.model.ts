@@ -1,4 +1,4 @@
-import {Display, Editable, Identification, Min, Required, Size} from '@components/decorators';
+import {Display, Editable, Identification, Min, Required, Size, Span} from '@components/decorators';
 
 /**
  *
@@ -14,8 +14,9 @@ export class RoomTypeModel {
   /**
    *
    */
-  @Display()
-  @Editable(12)
+  @Display
+  @Editable
+  @Span(12)
   @Size(1, 500)
   @Required
   name: string;
@@ -23,8 +24,8 @@ export class RoomTypeModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   @Min(1)
   numberBeds: number;
@@ -32,8 +33,8 @@ export class RoomTypeModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   @Min(1)
   maxOccupancy: number;
@@ -41,8 +42,8 @@ export class RoomTypeModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   basePrice: number;
 }

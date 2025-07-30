@@ -1,4 +1,4 @@
-import { Display, Editable, Identification, Min, Relation, Required } from '@components/decorators';
+import {Display, Editable, Identification, Min, Relation, Required, Span} from '@components/decorators';
 import { HotelModel } from '../../hotel/models/hotel.model';
 import { HotelService } from '../../hotel/services/hotel.service';
 import { RoomTypeModel } from '../../room-type/models/room-type.model';
@@ -18,8 +18,9 @@ export class RoomModel {
   /**
    *
    */
-  @Display()
-  @Editable(24)
+  @Display
+  @Editable
+  @Span(24)
   @Required
   @Min(1)
   number: number;
@@ -31,8 +32,8 @@ export class RoomModel {
     service: HotelService,
     label: 'name'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   hotel: HotelModel;
 
@@ -43,8 +44,8 @@ export class RoomModel {
     service: RoomTypeService,
     label: 'name'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   type: RoomTypeModel;
 }

@@ -13,8 +13,8 @@ export class PermissionModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   name: string;
 }

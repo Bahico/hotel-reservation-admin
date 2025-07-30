@@ -16,8 +16,8 @@ export class RoomInventoryModel {
   /**
    *
    */
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   availableRoomsCount: number;
 
@@ -28,8 +28,8 @@ export class RoomInventoryModel {
     service: RoomTypeService,
     label: 'name'
   })
-  @Display()
-  @Editable()
+  @Display
+  @Editable
   @Required
   roomType: RoomTypeModel;
 }
