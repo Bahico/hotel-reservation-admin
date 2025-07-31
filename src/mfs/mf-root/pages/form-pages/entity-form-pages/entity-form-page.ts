@@ -1,5 +1,4 @@
 import {Component, inject, Inject} from "@angular/core";
-import {BaseClientService} from "@components/services/base-client.service";
 import {BaseFormPage} from "@components/pages";
 import {BaseEntityModel} from '@components/models/entity.model';
 import {EventManager} from '@components/util/event-manager.service';
@@ -12,9 +11,9 @@ import {BaseClientCrudService} from '@components/services';
  */
 @Component({template: ''})
 export class EntityFormPage<T extends BaseEntityModel> extends BaseFormPage<T> {
-  private readonly alertService = inject(AlertService);
+  protected readonly alertService = inject(AlertService);
   private readonly eventManager = inject(EventManager);
-  private readonly translateService = inject(TranslateService);
+  protected readonly translateService = inject(TranslateService);
 
   /**
    *

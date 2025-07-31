@@ -53,7 +53,17 @@ export const RootTranslate: TranslateModel = {
     ru: 'Номер',
     uz: 'Raqami'
   },
+  "data-successfully-uploaded": {
+    ru: "Данные успешно загружены",
+    uz: "Ma'lumot muvaffaqiyatli yuklandi",
+    en: "Data successfully uploaded"
+  },
 
+  "upload-file-failed": {
+    "uz": "Faylni yuklashda xatolik yuz berdi",
+    "ru": "Произошла ошибка при загрузке файла",
+    "en": "An error occurred during file upload"
+  },
   date: {
     en: 'Date',
     ru: 'Дата',
