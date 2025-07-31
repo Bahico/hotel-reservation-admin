@@ -10,7 +10,7 @@ import {NgComponentOutlet} from '@angular/common';
 import {NzButtonComponent} from 'ng-zorro-antd/button';
 import {NzUploadChangeParam, NzUploadComponent, NzUploadXHRArgs} from 'ng-zorro-antd/upload';
 import {NzIconDirective} from 'ng-zorro-antd/icon';
-import {Subscription} from 'rxjs';
+import {Subscription, switchMap} from 'rxjs';
 
 @Component({
   templateUrl: 'room-form.html',
@@ -59,17 +59,30 @@ export class RoomForm extends EntityFormPage<RoomModel> {
     this.modalRef.close();
   }
   customUpload = (item: NzUploadXHRArgs): Subscription => {
-    const {file, onSuccess, onError} = item;
-    const itemId: number = this.formGroup.get('id').value
-    return this.roomService.uploadImage(itemId, file.name).subscribe({next:()=>{
-          this.alertService.success('success');
-          alert('message')
-      }, error:()=>{
-      this.alertService.error('error');
-        alert('message')
-      }})
+    const { file, onSuccess, onError } = item;
+    const itemId = this.formGroup.get('id')?.value;
 
+    if (!itemId || !file) {
+      const error = new Error('Invalid item ID or file');
+      onError?.(error, file);
+      return new Subscription();
+    }
+
+    return this.roomService.uploadImageUrl(itemId, file.name).pipe(
+      switchMap((data: any) => {
+        const uploadUrl = data?.url || data;
+        return this.roomService.postFile(uploadUrl, file);
+      })
+    ).subscribe({
+      next: () => {
+        onSuccess?.({}, file, undefined);
+      },
+      error: (err) => {
+        onError?.(err, file);
+      }
+    });
   };
+
   /**
    *
    */
