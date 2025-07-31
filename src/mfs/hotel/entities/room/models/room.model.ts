@@ -35,6 +35,7 @@ export class RoomModel {
   @Display
   @Editable
   @Required
+  @Span(12)
   hotel: HotelModel;
 
   /**
@@ -47,5 +48,11 @@ export class RoomModel {
   @Display
   @Editable
   @Required
+  @Span(12)
   type: RoomTypeModel;
+
+
+  @Display
+  @Span(24)
+  image: any
 }

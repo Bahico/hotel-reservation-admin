@@ -1,0 +1,64 @@
+<form (ngSubmit)="submit()" [formGroup]="formGroup">
+  <div class="ant-modal-header">
+    <h2>{{ title }}</h2>
+  </div>
+
+  <div class="modal-body">
+    <div class="mf-form-content ant-row">
+      @for (field of fields(); track $index) {
+        @if (!field.identification || isEdit()) {
+          @if (field.name === 'image'){
+            <div class="ant-col-{{field.span}}" style="padding: 5px; margin-bottom: 20px" >
+            <nz-upload
+              [nzCustomRequest]="customUpload"
+              [nzMultiple]="false"
+              [nzLimit]="1"
+              [nzFileList]="[]"
+              [nzShowUploadList]="false"
+              (nzChange)="handleChange($event)"
+              nzType="drag"
+            >
+              <p class="ant-upload-drag-icon">
+                <nz-icon nzType="inbox" />
+              </p>
+              <p class="ant-upload-text">Click or drag file to this area to upload</p>
+              <p class="ant-upload-hint">
+                Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files
+              </p>
+            </nz-upload>
+              </div>
+          } @else {
+
+          <div class="ant-col-{{field.span}}" style="padding: 5px">
+            <ng-container
+              *ngComponentOutlet="
+                field.components?.form || inputManager.getComponent(field.type);
+                inputs: {
+                  info: field,
+                  control: getControl(field.name),
+                  touched: touched()
+              }"
+            />
+
+          </div>
+          }
+        }
+      }
+    </div>
+  </div>
+
+  <div class="ant-modal-footer">
+    <button
+      nz-button
+      type="button"
+      (click)="closeModal()"
+      translate="back"
+    ></button>
+    <button
+      nz-button
+      [nzLoading]="isSubmitting()"
+      nzType="primary"
+      translate="submit"
+    ></button>
+  </div>
+</form>

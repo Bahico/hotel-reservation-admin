@@ -5,6 +5,7 @@ import {RoomService} from '../services/room.service';
 import {ActivatedRoute} from '@angular/router';
 import {MfList} from '@components/components';
 import {RootSharedModule} from '@components/root-shared.module';
+import {RoomForm} from 'hotel/entities/room/form/room-form';
 
 @Component({
   imports: [MfList, RootSharedModule],
@@ -15,7 +16,7 @@ import {RootSharedModule} from '@components/root-shared.module';
 })
 export default class RoomList extends EntityListPage<RoomModel> {
   title = 'rooms';
-
+  override formComponent = RoomForm
   constructor(
     readonly amenityService: RoomService,
     readonly activatedRoute: ActivatedRoute
