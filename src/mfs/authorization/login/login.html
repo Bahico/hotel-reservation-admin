@@ -6,7 +6,21 @@
     </div>
     <div class="control">
       <label>Password:</label>
-      <input type="password" name="password" [(ngModel)]="password" />
+      <div class="password-wrapper">
+        <input
+          class="password-input"
+          [type]="isShowPassword ? 'password' : 'text'"
+          name="password"
+          [(ngModel)]="password"
+        />
+        <nz-icon
+          class="password-icon"
+          [nzType]="isShowPassword ? 'eye' : 'eye-invisible'"
+          nzTheme="outline"
+          (click)="isShowPassword = !isShowPassword"
+        ></nz-icon>
+      </div>
+
     </div>
 
     <button type="submit">Login</button>
