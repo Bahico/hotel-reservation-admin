@@ -7,6 +7,7 @@ import { EntityListPage } from '@components/pages';
 import { RootSharedModule } from '@components/root-shared.module';
 import {TranslateRegisterr} from '@components/i18n';
 import {UserTranslate} from 'user/translates';
+import {UserForm} from 'user/entities/user/form/user-form';
 
 @Component({
   selector: 'user',
@@ -23,6 +24,8 @@ export default class User extends EntityListPage<UserModel> implements AfterView
   ) {
     super(userService, new UserModel(), activatedRoute);
   }
+
+  override formComponent = UserForm
 
   ngAfterViewInit() {
     this.translateRegister.register(UserTranslate);

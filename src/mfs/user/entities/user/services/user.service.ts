@@ -30,7 +30,9 @@ export class UserService extends BaseClientCrudService<UserModel> {
   create(entity: UserModel): Observable<UserModel> {
     return this.http.post<UserModel>(this.getEndpoint.getEndPoint('api/register', this.microservice), entity);
   }
-
+  update(entity: UserModel): Observable<UserModel> {
+    return this.http.put<UserModel>(this.getEndpoint.getEndPoint(`api/users/update`, this.microservice), entity);
+  }
   changePassword(data: {password: string; login: string}): Observable<UserModel> {
     return this.http.post<UserModel>(this.getEndpoint.getEndPoint('api/account/change-password-with-login', this.microservice), data);
   }
