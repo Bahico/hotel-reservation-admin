@@ -15,7 +15,7 @@ export class RoomDayStoreService {
   reservationsFilter$(roomId: number) {
     return this.reservations$$.asObservable()
       .pipe(
-        map((reservations: ReservationModel[]) => reservations.filter(reservation => reservation.room.id === roomId))
+        map((reservations: ReservationModel[]) => reservations.filter(reservation => reservation.room?.id === roomId))
       );
   }
 

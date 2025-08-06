@@ -1,9 +1,11 @@
-<div class="dashboard" [class.collapsed]="sidebarCollapsed()">
+<div class="flex" [class.collapsed]="sidebarCollapsed()">
   <dashboard-sidebar [dashboardItems]="dashboardItems()" [(collapsed)]="sidebarCollapsed"/>
 
-
-  <div class="dashboard-content">
+  <div class="dashboard-content gap-0">
     <dashboard-navbar/>
-    <router-outlet/>
+
+    <div class="p-4 w-full overflow-y-auto h-[calc(100vh-82px)]">
+      <router-outlet />
+    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
-<div class="dashboard-sidebar">
-  <div class="sidebar_header">
-    <div class="sidebar_logo" [class.active]="collapsed()">
+<div class="dashboard-sidebar font-medium border-gray-300 border-r overflow-y-auto">
+  <div class="sidebar_header border-gray-300 border-b">
+    <div class="sidebar_logo pl-4" [class.active]="collapsed()">
       {{organizationName$ | async}}
     </div>
 
@@ -45,5 +45,9 @@
         </div>
       }
     }
+  </div>
+
+  <div class="flex items-center text-gray-500 justify-center mt-auto border-gray-300 border-t w-full p-5">
+    {{ '@' }} 2025 DevOps LLC
   </div>
 </div>

@@ -61,7 +61,6 @@ export abstract class EntityListPage<T extends Identified> extends FilterPage<T>
     private readonly _activatedRoute?: ActivatedRoute
   ) {
     super()
-    console.log(classType)
   }
 
   /**

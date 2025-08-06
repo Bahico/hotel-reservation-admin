@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
 @use "components";
 @import "ng-zorro-antd/ng-zorro-antd.min.css";
-
-@import "tailwindcss";
-
 
 :root {
   --primary-color: 24, 144, 255;
@@ -19,3 +17,19 @@
   --sidebar-with: 250px;
   --tui-service-backdrop: rgba(0, 0, 0, 0.55);
 }
+
+body {
+  font-family: "NoirPro", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background: var(--background-bg) !important;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "NoirPro", sans-serif;
+}
+
+

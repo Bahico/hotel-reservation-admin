@@ -85,8 +85,10 @@ export default class BookRoom implements OnInit {
   }
 
   get roomFilter() {
-    return {
-      "roomTypeId.equals": this.roomType()?.id
+    const filter = {};
+    if (this.roomType()) {
+      filter["typeId.equals"] = this.roomType()?.id
     }
+    return filter
   }
 }

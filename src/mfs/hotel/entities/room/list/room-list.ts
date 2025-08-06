@@ -11,12 +11,17 @@ import {RoomForm} from 'hotel/entities/room/form/room-form';
   imports: [MfList, RootSharedModule],
   providers: [RoomService],
   template: `
-    <mf-list [page]="this"/>
+    @if (filterFields && filterFields.length) {
+      <mf-list [page]="this"/>
+
+    }
   `
 })
 export default class RoomList extends EntityListPage<RoomModel> {
   title = 'rooms';
-  override formComponent = RoomForm
+
+  override formComponent = RoomForm;
+
   constructor(
     readonly amenityService: RoomService,
     readonly activatedRoute: ActivatedRoute

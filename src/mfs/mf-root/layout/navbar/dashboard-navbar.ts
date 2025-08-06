@@ -12,10 +12,7 @@ import { ProfileNavbar } from './profile/profile-navbar';
     NzButtonModule,
     NzIconDirective,
     ProfileNavbar
-  ],
-  host: {
-    '[style.width.%]': '100'
-  }
+  ]
 })
 export class DashboardNavbar {
   protected readonly loginService = inject(LoginService);

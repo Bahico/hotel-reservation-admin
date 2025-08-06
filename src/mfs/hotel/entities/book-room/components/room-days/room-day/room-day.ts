@@ -47,6 +47,7 @@ export class RoomDay implements OnDestroy {
           const currentFullDay = this.getFullDay(this.day())
           for (const reservation of res) {
             if (reservation.room.id === this.room().id) {
+              console.log(reservation);
 
               if (this.getFullDay(reservation.checkInDate) === currentFullDay) {
                 this.startReservation.set(reservation);
