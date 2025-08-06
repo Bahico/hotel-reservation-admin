@@ -2,6 +2,9 @@
 @use "components";
 @import "ng-zorro-antd/ng-zorro-antd.min.css";
 
+@import "tailwindcss";
+
+
 :root {
   --primary-color: 24, 144, 255;
   --background-bg: rgba(244, 244, 244, 1);
