@@ -79,4 +79,28 @@
       }
     }
   }
+  ::ng-deep .custom-tabs {
+
+
+    .ant-tabs-tab {
+      color: #555;
+      background-color: transparent;
+
+
+      &.ant-tabs-tab-active {
+        width: 200px;
+        background-color: #1890ff;
+        color: #fff;
+        border-radius: 10px;
+      }
+    }
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+      color: white;
+    }
+    .ant-tabs-ink-bar {
+      background-color: #1890ff;
+      color: white;
+    }
+  }
+
 }

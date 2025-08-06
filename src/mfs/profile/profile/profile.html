@@ -1,5 +1,10 @@
 @let account = accountService.account | async;
-
+  <nz-tabs class="custom-tabs" nzType="card" [nzTabPosition]="'left'">
+    <nz-tab nzTitle="Tab 1">Content of Tab Pane 1</nz-tab>
+    <nz-tab nzTitle="Tab 2">Content of Tab Pane 2</nz-tab>
+    <nz-tab nzTitle="Tab 3">Content of Tab Pane 3</nz-tab>
+  </nz-tabs>
+<h1>hello</h1>
 @if (account) {
   <div class="header">
     <div class="left">

@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AccountService } from '@components/account';
-import { AsyncPipe } from '@angular/common';
-import { NzButtonComponent } from 'ng-zorro-antd/button';
-import { NzIconDirective } from 'ng-zorro-antd/icon';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {AccountService} from '@components/account';
+import {AsyncPipe} from '@angular/common';
+import {NzButtonComponent} from 'ng-zorro-antd/button';
+import {NzIconDirective} from 'ng-zorro-antd/icon';
+import {NzTabsModule} from 'ng-zorro-antd/tabs';
 
 @Component({
   templateUrl: 'profile.html',
@@ -11,7 +12,8 @@ import { NzIconDirective } from 'ng-zorro-antd/icon';
   imports: [
     AsyncPipe,
     NzButtonComponent,
-    NzIconDirective
+    NzIconDirective,
+    NzTabsModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
