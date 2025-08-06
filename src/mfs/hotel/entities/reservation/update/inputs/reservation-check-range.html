@@ -1,0 +1,8 @@
+<label class="label" [translate]="info().title"></label>
+
+<nz-range-picker
+  nzShowTime
+  nzFormat="dd.MM.yyyy HH:mm"
+  [ngModel]="[formGroup.controls.checkInDate.value, formGroup.controls.checkOutDate.value]"
+  (ngModelChange)="onChange($event)"
+/>
