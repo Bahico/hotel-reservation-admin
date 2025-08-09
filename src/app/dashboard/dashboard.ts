@@ -8,6 +8,7 @@ import staffItems from "staff/items";
 import organizationItems from "organization/items";
 import hotelItems from "hotel/items";
 import userItems from "user/items";
+import ratePlanItems from "rate-plan/items";
 
 @Component({
   imports: [
@@ -23,8 +24,9 @@ export default class Dashboard {
   sidebarCollapsed = signal(false);
 
   dashboardItems = signal<DashboardItem[]>([
-    ...staffItems,
+    // ...staffItems,
     ...organizationItems,
+    ...ratePlanItems,
     ...hotelItems,
     ...userItems
   ]);

@@ -57,11 +57,6 @@ export class EntityDecoratorInfo {
   /**
    *
    */
-  isNullable: boolean;
-
-  /**
-   *
-   */
   selectService: any;
 
   /**

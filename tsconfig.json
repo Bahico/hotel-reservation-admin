@@ -13,6 +13,7 @@
       "user/*": ["mfs/user/*"],
       "hotel/*": ["mfs/hotel/*"],
       "organization/*": ["mfs/organization/*"],
+      "rate-plan/*": ["mfs/rate-plan/*"],
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
