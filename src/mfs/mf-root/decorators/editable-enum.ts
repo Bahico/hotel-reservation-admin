@@ -10,7 +10,6 @@ export function EditableEnum(enumType: any, span: number = 8, isNullable: boolea
         let field = EntityDecoratorManager.getInfo(target, key);
         field.isEditable = true;
         field.span = span;
-        field.isNullable = isNullable;
         field.type = EnumNumber;
         field.enumType = enumType;
     };

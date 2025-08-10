@@ -26,5 +26,9 @@ export default {
       path: 'user',
       loadChildren: () => import('user/routes'),
     },
+    {
+      path: 'rate-plan',
+      loadChildren: () => import('rate-plan/routes'),
+    },
   ]
 } satisfies Route;
