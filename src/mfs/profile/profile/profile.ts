@@ -28,13 +28,7 @@ export class Profile {
     const imgElement = event.target as HTMLImageElement;
     imgElement.src = this.emptyAvatar;
   }
-  navigate(){
-      this.router.navigate(['settings'], { relativeTo: this.route });
-
+  navigate(route:string){
+      this.router.navigate([route], { relativeTo: this.route });
   }
-  showAlert(){
-    alert('das')
-  }
-  protected readonly alert = alert;
-  protected readonly navigator = navigator;
 }

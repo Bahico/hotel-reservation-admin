@@ -25,7 +25,7 @@
             <nz-icon nzType="user" nzTheme="outline" style="font-size: 20px;"></nz-icon>
             <span class="info-title"> Personal information</span>
             </div>
-            <button  (click)="navigate()" nz-button>
+            <button  (click)="navigate('settings')" nz-button>
               Edit
               <nz-icon theme="fill" nzType="edit" />
             </button>
@@ -70,7 +70,7 @@
           </div>
         </div>
 
-        <button nz-button>
+        <button (click)="navigate('security')" nz-button>
           <nz-icon nzType="edit" />
           Change password
         </button>
@@ -80,6 +80,6 @@
     <button style="position: absolute; top: 0;">hello1</button>
   </nz-tabs>
 </div>
-<h1>hello</h1>
+
 
 

@@ -21,33 +21,28 @@ import {MyProfileService} from './my-profile-service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyProfile implements OnInit {
+
   protected readonly accountService = inject(AccountService);
+
   protected readonly history = history;
+
   formGroup = new FormGroup({
-    activated: new FormControl(true),
-    authorities: new FormControl<string[]>([]),
     email: new FormControl(''),
     firstName: new FormControl(''),
     id: new FormControl<number | null>(null),
-    imageUrl: new FormControl(''),
-    langKey: new FormControl(''),
     lastName: new FormControl(''),
     login: new FormControl(''),
     phoneNumber: new FormControl(''),
-    password: new FormControl(''),
-    tenant: new FormControl<any>(null)
   });
 
-
-  constructor(private securityService: MyProfileService, private message: NzMessageService) {
-  }
+  constructor(private myProfileService: MyProfileService, private message: NzMessageService) {}
 
   ngOnInit() {
     this.formGroup.patchValue(this.accountService.getAccount())
   }
 
   onSubmit() {
-    this.securityService.editProfile(this.formGroup.getRawValue()).subscribe(
+    this.myProfileService.editProfile(this.formGroup.getRawValue()).subscribe(
       {
         next: (res) => {
           this.message.success('success saved')

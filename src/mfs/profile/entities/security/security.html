@@ -1,0 +1,45 @@
+<section class="min-h-screen">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="breadcrumb-pill inline-flex items-center gap-3">
+      <button (click)="history.back()" class="flex bg-white p-2 cursor-pointer radius rounded-lg items-center gap-2 text-sm text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span class="font-medium">Back</span>
+      </button>
+    </div>
+
+    <div class="edit-card mt-6 bg-white rounded-2xl p-6 shadow">
+      <h2 class="text-xl font-semibold mb-6">Change password</h2>
+
+      <nz-input-group [nzSuffix]="suffixTemplate" class="w-full">
+        <input
+          [type]="passwordVisible() ? 'text' : 'password'"
+          id="password"
+          placeholder="input password"
+          [(ngModel)]="password"
+          nz-input />
+      </nz-input-group>
+
+      <ng-template #suffixTemplate>
+        <nz-icon
+          class="ant-input-password-icon"
+          [nzType]="passwordVisible() ? 'eye-invisible' : 'eye'"
+          (click)="passwordVisible.set(!passwordVisible())"
+        />
+      </ng-template>
+
+        <div class="flex space-x-3 gap-3 pt-4">
+          <button type="button" class="cursor-pointer px-6 py-2 rounded-lg border border-gray-300 !bg-white !text-gray-700">
+            Cancel
+          </button>
+
+          <button type="submit" (click)="save()" class="cursor-pointer px-6 py-2 rounded-lg !bg-green-500 !text-white">
+            Save changes
+          </button>
+        </div>
+
+    </div>
+  </div>
+</section>
