@@ -6,9 +6,8 @@ import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import {SecurityService} from './security-service';
 import {NzIconDirective} from 'ng-zorro-antd/icon';
-import {TranslateDirective, TranslatePipe} from '@ngx-translate/core';
-import {NzInputDirective, NzInputGroupComponent} from 'ng-zorro-antd/input';
-import {NzButtonComponent} from 'ng-zorro-antd/button';
+import {TranslateDirective} from '@ngx-translate/core';
+import {NzInputGroupComponent} from 'ng-zorro-antd/input';
 
 @Component({
   templateUrl: 'security.html',
@@ -19,20 +18,20 @@ import {NzButtonComponent} from 'ng-zorro-antd/button';
     ReactiveFormsModule,
     NzDatePickerModule,
     NzIconDirective,
-    TranslatePipe,
     NzInputGroupComponent,
-    NzInputDirective,
     FormsModule,
     NzIconDirective,
-    NzButtonComponent,
-    TranslateDirective
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Security implements OnInit {
+
   protected readonly accountService = inject(AccountService);
+
   protected readonly history = history;
+
   passwordVisible = signal(false);
+
   password = model<string>();
 
 
