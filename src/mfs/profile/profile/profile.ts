@@ -1,9 +1,10 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {AccountService} from '@components/account';
+import {AccountService, LoginService} from '@components/account';
 import {AsyncPipe} from '@angular/common';
 import {NzButtonComponent} from 'ng-zorro-antd/button';
 import {NzIconDirective} from 'ng-zorro-antd/icon';
 import {NzTabsModule} from 'ng-zorro-antd/tabs';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   templateUrl: 'profile.html',
@@ -19,11 +20,21 @@ import {NzTabsModule} from 'ng-zorro-antd/tabs';
 })
 export class Profile {
   protected readonly accountService = inject(AccountService);
-
+  protected readonly loginService = inject(LoginService);
+  private readonly router = inject(Router);
   protected readonly emptyAvatar = 'images/blank-profile.webp';
-
+  private readonly route = inject(ActivatedRoute);
   onImgError(event: Event) {
     const imgElement = event.target as HTMLImageElement;
     imgElement.src = this.emptyAvatar;
   }
+  navigate(){
+      this.router.navigate(['settings'], { relativeTo: this.route });
+
+  }
+  showAlert(){
+    alert('das')
+  }
+  protected readonly alert = alert;
+  protected readonly navigator = navigator;
 }
