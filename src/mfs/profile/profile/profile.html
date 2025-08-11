@@ -1,46 +1,85 @@
 @let account = accountService.account | async;
+<div style="padding: 30px; background: white; border-radius: 16px; width: 100%; height: 100vh">
 
-@if (account) {
-  <div class="header">
-    <div class="left">
-      <img class="avatar" [src]="account.imageUrl || emptyAvatar" (error)="onImgError($event)" alt="">
-      <div class="full-name">
-        <span>{{ account.lastName }}</span>
-        <span>{{ account.firstName }}</span>
+  <nz-tabs class="custom-tabs" nzType="card"  [nzTabPosition]="'left'">
+    <nz-tab nzTitle="My Profile">
+      @if (account) {
+        <h3 class="header-title">My Profile</h3>
+        <div class="header">
+          <div class="left">
+            <img class="avatar" [src]="account.imageUrl || emptyAvatar" (error)="onImgError($event)" alt="">
+            <div class="full-name">
+              <span>{{ account.lastName }}</span>
+              <span>{{ account.firstName }}</span>
+            </div>
+          </div>
+
+          <button   nz-button>
+            Change avatar
+          </button>
+        </div>
+
+        <div class="total-information">
+          <div class="info-header" style="display: flex; justify-content: space-between; gap: 8px; width: 100%; margin-bottom: 10px;">
+            <div>
+            <nz-icon nzType="user" nzTheme="outline" style="font-size: 20px;"></nz-icon>
+            <span class="info-title"> Personal information</span>
+            </div>
+            <button  (click)="navigate('settings')" nz-button>
+              Edit
+              <nz-icon theme="fill" nzType="edit" />
+            </button>
+          </div>
+          <div style="width: 100%; height: .5px; background: rgba(117,117,139,0.51)"></div>
+          <div class="col">
+            <label>First name</label>
+            <span>{{account.firstName}}</span>
+          </div>
+          <div class="col">
+            <label>Last name</label>
+            <span>{{account.lastName}}</span>
+          </div>
+          <div class="col">
+            <label>Email</label>
+            <span>{{account.email}}</span>
+          </div>
+          <div class="col">
+            <label>Login</label>
+            <span>{{account.login}}</span>
+          </div>
+          <div class="col">
+            <label>Phone number</label>
+            <span>+{{account.phoneNumber}}</span>
+          </div>
+          <div class="col">
+            <label>Lang Key</label>
+            <span>{{account.langKey}}</span>
+          </div>
+        </div>
+      }
+    </nz-tab>
+    <nz-tab nzTitle="Security">
+      <h3 class="header-title">Security</h3>
+      <div class="header">
+        <div class="left">
+          <img class="security" src="images/password-icon.svg" (error)="onImgError($event)" alt="" height="40"
+               width="40">
+          <div class="full-name">
+            <span>{{ account.lastName }}</span>
+            <span>{{ account.firstName }}</span>
+          </div>
+        </div>
+
+        <button (click)="navigate('security')" nz-button>
+          <nz-icon nzType="edit" />
+          Change password
+        </button>
       </div>
-    </div>
+    </nz-tab>
+    <nz-tab (nzClick)="loginService.logout()" class="custom-btn" nzTitle="Log Out"></nz-tab>
+    <button style="position: absolute; top: 0;">hello1</button>
+  </nz-tabs>
+</div>
 
-    <button nz-button>
-      <nz-icon nzType="edit" />
-      Change avatar
-    </button>
-  </div>
 
-  <div class="total-information">
-    <div class="col">
-      <label>First name</label>
-      <span>{{account.firstName}}</span>
-    </div>
-    <div class="col">
-      <label>Last name</label>
-      <span>{{account.lastName}}</span>
-    </div>
-    <div class="col">
-      <label>Email</label>
-      <span>{{account.email}}</span>
-    </div>
-    <div class="col">
-      <label>Login</label>
-      <span>{{account.login}}</span>
-    </div>
-    <div class="col">
-      <label>Phone number</label>
-      <span>+{{account.phoneNumber}}</span>
-    </div>
-    <div class="col">
-      <label>Lang Key</label>
-      <span>{{account.langKey}}</span>
-    </div>
-  </div>
-}
 

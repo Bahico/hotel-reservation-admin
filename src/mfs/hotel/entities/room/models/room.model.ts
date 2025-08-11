@@ -54,5 +54,5 @@ export class RoomModel {
 
   @Display
   @Span(24)
-  image: any
+  image: string
 }
