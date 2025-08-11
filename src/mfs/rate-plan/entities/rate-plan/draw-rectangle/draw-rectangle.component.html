@@ -1,0 +1,23 @@
+<div class="drawing-area" (mousedown)="onMouseDown($event)">
+
+  @for (item of items; track item.name) {
+    <div
+      class="item select-none"
+      [class.selected]="item.selected"
+      #selectItem
+    >
+      {{ item.name }}
+    </div>
+  }
+
+  @if (isDrawing) {
+    <div class="selection-box"
+         [ngStyle]="{
+         left: rectLeft + 'px',
+         top: rectTop + 'px',
+         width: rectWidth + 'px',
+         height: rectHeight + 'px'
+       }">
+    </div>
+  }
+</div>
