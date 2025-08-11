@@ -6,8 +6,7 @@ import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import {SecurityService} from './security-service';
 import {NzIconDirective} from 'ng-zorro-antd/icon';
-import {TranslateDirective} from '@ngx-translate/core';
-import {NzInputGroupComponent} from 'ng-zorro-antd/input';
+import {NzInputDirective, NzInputGroupComponent} from 'ng-zorro-antd/input';
 
 @Component({
   templateUrl: 'security.html',
@@ -21,6 +20,7 @@ import {NzInputGroupComponent} from 'ng-zorro-antd/input';
     NzInputGroupComponent,
     FormsModule,
     NzIconDirective,
+    NzInputDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -45,7 +45,7 @@ export class Security implements OnInit {
       password: this.password()
     }).subscribe(
       {
-        next: (res) => {
+        next: () => {
           this.message.success('success saved')
           history.back()
         },
