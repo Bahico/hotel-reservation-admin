@@ -35,7 +35,7 @@ export default [
   },
   {
     path: 'rate-plans',
-    loadComponent: () => import('./entities/rate-plan/list/rate-plan')
+    loadChildren: () => import('./entities/rate-plan/routes')
   },
   {
     path: 'rate-plan-price-room-types',

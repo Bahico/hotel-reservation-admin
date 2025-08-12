@@ -98,20 +98,8 @@ export class BookingConfirmationModel {
    *
    */
   @Relation({
-    service: BookingCostService,
-    label: 'totalCost'
-  })
-  @Display
-  @Display
-  cost: BookingCostModel;
-
-  /**
-   *
-   */
-  @Relation({
     service: CustomerInformationService,
-    label: 'firstName',
-    prefix: 'lastName'
+    label: 'firstName'
   })
   @Display
   @Display

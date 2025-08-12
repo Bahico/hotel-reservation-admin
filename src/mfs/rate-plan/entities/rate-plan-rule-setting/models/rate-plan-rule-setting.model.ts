@@ -21,7 +21,7 @@ export class RatePlanRuleSettingModel {
   @Display
   @Editable
   @Required
-  startTime: Date;
+  startTime: string;
 
   /**
    *
@@ -29,7 +29,7 @@ export class RatePlanRuleSettingModel {
   @Display
   @Editable
   @Required
-  endTime: Date;
+  endTime: string;
 
   /**
    *

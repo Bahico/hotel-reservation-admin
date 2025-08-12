@@ -1,0 +1,8 @@
+<h1 class="text-3xl">Rate plan "{{ ratePlan().name }}"</h1>
+
+<div class="flex flex-col w-full p-2 rounded-md bg-[rgba(226,239,220,.8)] border border-gray-300 mb-10">
+  <label for="active">Active rate plan</label>
+  <nz-switch id="active" [ngModel]="ratePlan().status === ratePlanStatus.ACTIVE" (ngModelChange)="changeRatePlanStatus()" />
+</div>
+
+<router-outlet />

@@ -66,7 +66,7 @@ export abstract class BaseClientCrudService<TModel> {
    *
    * @param id
    */
-  getById(id: number): Observable<TModel> {
+  getById(id: number | string): Observable<TModel> {
     return this.http.get<TModel>(`${this.resourceUrl}/${id}`);
   }
 

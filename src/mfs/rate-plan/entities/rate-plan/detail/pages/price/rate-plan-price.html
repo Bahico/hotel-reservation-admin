@@ -1,0 +1,90 @@
+<div class="flex flex-col border border-gray-300 bg-white rounded-md">
+  <div class="flex justify-between items-center p-2 border-b border-gray-300">
+    <h1 class="text-2xl" style="margin-bottom: 0px;">Prices</h1>
+
+    <!-- Segment Control for View Mode -->
+    <div class="gap-2 flex items-center">
+      @if (selecting()) {
+        <button class="unmark-price-btn">
+          Unmark
+        </button>
+        <button class="add-price-btn bg-primary">
+          Add rate plan price
+        </button>
+      }
+
+      <div class="flex bg-gray-100 rounded-lg p-1">
+        <button
+          class="px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer"
+          [class.bg-white]="viewMode() === 'roomTypes'"
+          [class.text-blue-700]="viewMode() === 'roomTypes'"
+          [class.text-white]="viewMode() !== 'roomTypes'"
+          [class.shadow-sm]="viewMode() === 'roomTypes'"
+          (click)="setViewMode('roomTypes')"
+        >
+          By Room Types
+        </button>
+        <button
+          class="px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer"
+          [class.bg-white]="viewMode() === 'months'"
+          [class.text-blue-700]="viewMode() === 'months'"
+          [class.text-white]="viewMode() !== 'months'"
+          [class.shadow-sm]="viewMode() === 'months'"
+          (click)="setViewMode('months')"
+        >
+          By Months
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="flex flex-col border-l border-t border-gray-300 relative m-4 calendar-grid rounded-lg overflow-hidden">
+      <div class="flex month-header">
+        <div class="flex flex-col justify-center pl-3 w-25 border-r border-b border-gray-200 py-2">
+          <span class="text-lg font-bold">{{ currentMonth().date.getFullYear() }}</span>
+          <span class="text-sm text-gray-600">{{ months()[currentMonth().date.getMonth()] }}</span>
+        </div>
+
+        @for (weekDay of currentMonth().days; track weekDay.day) {
+          <div
+            class="flex flex-col justify-center pl-2 w-10 border-r border-b border-gray-200 py-2"
+            [class.weekend]="5 === weekDay.weekday || 6 === weekDay.weekday"
+          >
+            <span class="text-xs font-medium">{{ weekDaysSmall()[weekDay.weekday] }}</span>
+          </div>
+        }
+      </div>
+
+      @for (roomType of roomTypes(); track roomType.id) {
+        <div class="flex selected-date-row">
+          <div class="flex h-20 flex-col justify-center p-2 pl-3 w-25 border-r border-b border-gray-200 room-type-header">
+            <span class="font-medium text-gray-800">{{ roomType.name }}</span>
+
+            <span class="text-xs text-gray-500 mt-1">1 guest(s)</span>
+            <span class="text-xs text-gray-500">2 guest(s)</span>
+            <span class="text-xs text-gray-500">Extra guest</span>
+          </div>
+
+          @for (weekDay of currentMonth().days; track weekDay.day) {
+            <date-detail
+              #dateRef
+              class="border-r border-b border-gray-200 w-10 date-cell cursor-pointer"
+              [class.weekend]="5 === weekDay.weekday || 6 === weekDay.weekday"
+              [class.selected-date]="dateRef.isSelected()"
+              (mousedown)="onMouseDown(dateRef)"
+              (mouseenter)="onMouseEnter(dateRef)"
+              (mouseup)="onMouseUp()"
+              [roomType]="roomType"
+              [day]="weekDay"
+              [month]="currentMonth()"
+            />
+          }
+        </div>
+      }
+
+    </div>
+  </div>
+
+</div>

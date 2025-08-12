@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #1890ff;
+}
+
+@layer components {
+  .selected-date {
+    @apply bg-primary/50 border-none text-white;
+  }
+}

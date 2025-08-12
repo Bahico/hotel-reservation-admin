@@ -10,6 +10,10 @@ export default [
         route: 'rate-plan/rate-plans'
       },
       {
+        name: 'Rate plan prices',
+        route: 'rate-plan/rate-plan-prices'
+      },
+      {
         name: 'Rate plan price room types',
         route: 'rate-plan/rate-plan-price-room-types'
       },

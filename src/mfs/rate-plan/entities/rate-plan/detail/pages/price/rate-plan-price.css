@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Weekend styling with subtle background */
+  .weekend {
+    @apply bg-blue-50;
+  }
+
+
+  /* Custom dashed border animation for selected dates */
+  .selected-date::before {
+    /* content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px dashed #ffffff;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 10; */
+  }
+
+  .add-price-btn {
+    @apply px-4 py-2 rounded-md text-sm font-medium cursor-pointer hover:shadow-blue-400 shadow duration-150;
+    color: white !important;
+  }
+
+  .unmark-price-btn {
+    @apply px-4 py-2 rounded-md text-sm border-1 border-gray-300 font-medium cursor-pointer hover:shadow-gray-400 hover:shadow duration-150;
+  }
+
+
+  /* Remove right border when next cell is selected */
+  .no-right-border {
+    border-right: none !important;
+  }
+
+  /* Remove left border when previous cell is selected */
+  .no-left-border {
+    border-left: none !important;
+  }
+
+  /* Hover effects for date cells */
+  .date-cell:hover {
+    @apply bg-blue-100 transition-colors duration-200;
+  }
+
+  /* Header styling */
+  .calendar-header {
+    @apply bg-gradient-to-r from-blue-600 to-blue-700 text-white;
+  }
+
+  /* Room type header styling */
+  .room-type-header {
+    @apply bg-gray-50 border-gray-200;
+  }
+
+  /* Day number styling */
+  .day-number {
+    @apply text-gray-700 font-medium;
+  }
+
+  /* Alternative weekend styling for better contrast */
+  .weekend .day-number {
+    @apply text-blue-600;
+  }
+
+  /* Selected state for weekend dates */
+  .weekend.selected-date {
+    @apply bg-blue-600;
+  }
+
+  /* Hover state for weekend dates */
+  .weekend:hover {
+    @apply bg-blue-100;
+  }
+
+  /* Calendar grid styling */
+  .calendar-grid {
+    @apply border-gray-200;
+  }
+
+  /* Month/year header styling */
+  .month-header {
+    @apply bg-gray-50 text-gray-700 font-semibold;
+  }
+}
+

@@ -37,16 +37,16 @@ export class RatePlanModel {
   /**
    *
    */
-  @Display
   @EditableEnum(RatePlanStatus)
+  @Display
   @Required
   status: RatePlanStatus;
 
   /**
    *
    */
-  @Display
   @EditableEnum(RatePlanType)
+  @Display
   @Required
   type: RatePlanType
 

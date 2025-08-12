@@ -26,6 +26,7 @@ export class RoomTypeModel {
    */
   @Display
   @Editable
+  @Span(12)
   @Required
   @Min(1)
   numberBeds: number;
@@ -35,6 +36,7 @@ export class RoomTypeModel {
    */
   @Display
   @Editable
+  @Span(12)
   @Required
   @Min(1)
   maxOccupancy: number;
@@ -44,6 +46,7 @@ export class RoomTypeModel {
    */
   @Display
   @Editable
+  @Span(12)
   @Required
   basePrice: number;
 }
