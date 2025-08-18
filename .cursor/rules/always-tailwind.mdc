@@ -1,0 +1,42 @@
+---
+description: Always use Tailwind CSS for styling
+globs: ["**/*.html", "**/*.tsx", "**/*.jsx", "**/*.vue", "**/*.svelte", "**/*.ts", "**/*.js"]
+alwaysApply: true
+---
+
+# Tailwind CSS Styling Rules
+
+Always use Tailwind CSS utility classes for styling instead of custom CSS or inline styles.
+
+## Guidelines:
+
+1. **Use Tailwind utility classes** for all styling needs
+2. **Avoid custom CSS** unless absolutely necessary for complex animations or very specific use cases
+3. **Use Tailwind's responsive prefixes** (sm:, md:, lg:, xl:, 2xl:) for responsive design
+4. **Use Tailwind's state variants** (hover:, focus:, active:, disabled:, etc.) for interactive states
+5. **Leverage Tailwind's design system** for consistent spacing, colors, typography, and layout
+6. **Use arbitrary values** with square brackets [value] only when standard utilities don't cover the need
+7. **Group related classes** logically for better readability
+8. **Use @apply directive** in CSS files only for component-level abstractions when necessary
+
+## Examples:
+
+### Good ✅
+```html
+<div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+  <h2 class="text-xl font-semibold text-gray-800">Title</h2>
+  <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+    Click me
+  </button>
+</div>
+```
+
+### Avoid ❌
+```html
+<div style="display: flex; padding: 16px; background: white;">
+  <h2 style="font-size: 20px; color: #333;">Title</h2>
+</div>
+```
+
+## Class Organization:
+Order classes logically: Layout → Spacing → Sizing → Colors → Typography → Effects → Transitions
